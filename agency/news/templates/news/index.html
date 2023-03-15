@@ -1,0 +1,15 @@
+{% extends 'news/base.html' %}
+
+{%block content %}
+
+<h2> Спосок новостей</h2>
+<ul>
+    {%for post in posts %}
+    <li>
+        <hr>
+        <h2> {{post.title}} --> {{post.content}}</h2>
+
+    </li>
+    {%endfor %}
+</ul>
+{%endblock%}
