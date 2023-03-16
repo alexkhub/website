@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,20 @@
     <title>{{title}}</title>
 
     <link type="text/css" href="{% static 'news/css/styles.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+
 </head>
 <body>
 {% block mainmenu%}
+<!-- меню-->
+    <div class="topnav" >
+        {%for m in menu %}
+        <a href="#" class="active">{{m}}</a>
+        {%endfor%}
+      </div>
+
 <ul>
     {%for m in menu %}
     <li>{{m}}</li>
@@ -21,6 +33,6 @@
 {%block content%}
 {%endblock%}
 <h1> {{title}}</h1>
-<img scr = "{% static 'news/images/image1.png'%}">
+
 </body>
 </html>
