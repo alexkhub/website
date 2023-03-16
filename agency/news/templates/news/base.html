@@ -14,6 +14,7 @@
 
 </head>
 <body>
+<div class="menu">
 {% block mainmenu%}
 <!-- меню-->
     <div class="topnav" >
@@ -21,6 +22,7 @@
         <a href="#" class="active">{{m}}</a>
         {%endfor%}
       </div>
+</div>
 
 <ul>
     {%for m in menu %}
@@ -34,5 +36,10 @@
 {%endblock%}
 <h1> {{title}}</h1>
 
+<div class = 'footer'>
+    <footer>
+        <h2>это футтер </h2>
+    </footer>
+</div>
 </body>
 </html>

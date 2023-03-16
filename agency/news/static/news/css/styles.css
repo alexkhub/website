@@ -1,8 +1,20 @@
+*body{
+min-height : 300px;
+}
+
+/*  меню */
+.menu{
+display: inline-block;
+margin: 0px 0px 20px 0px
+}
 
 .topnav {
     background-color: #333;
     overflow: hidden;
-    margin: -8px;
+    position: fixed;
+
+    top: 0px;
+    width: 99%;
 }
 
 .topnav a {
@@ -28,4 +40,25 @@
 
 }
 
+/*  footer*/
 
+.footer{
+dislay: inline-block;
+position: fixed;
+bottom: 0px;
+width: 99%;
+margin: 20px 0px 0px 0px;
+
+}
+
+footer{
+
+font-family: 'Source Sans Pro', sans-serif;
+margin: 0px -5px;
+padding: 5px;
+border: 1px solid red;
+background: rgba(0, 0, 0, 0.5);
+color: rgb(255, 255, 255);
+font-size: 1em;
+
+}
