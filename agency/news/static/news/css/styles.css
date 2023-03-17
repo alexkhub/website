@@ -1,4 +1,4 @@
-*body{
+body{
 min-height : 300px;
 }
 
@@ -14,7 +14,7 @@ margin: 0px 0px 20px 0px
     position: fixed;
 
     top: 0px;
-    width: 99%;
+    width: 100%;
 }
 
 .topnav a {
