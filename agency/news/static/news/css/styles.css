@@ -42,23 +42,38 @@ margin: 0px 0px 20px 0px
 
 /*  footer*/
 
-.footer{
-dislay: inline-block;
-position: fixed;
-bottom: 0px;
-width: 99%;
-margin: 20px 0px 0px 0px;
-
+.footer-container{
+    max-width: 90%;
+    margin: auto;
 }
 
-footer{
+.footer{
+    margin: 0;
+    padding: 30px 0 0 0;
+    background-color: rgb(33, 30, 30);
+    box-sizing: border-box;
+}
 
-font-family: 'Source Sans Pro', sans-serif;
-margin: 0px -5px;
-padding: 5px;
-border: 1px solid red;
-background: rgba(0, 0, 0, 0.5);
-color: rgb(255, 255, 255);
-font-size: 1em;
+
+
+.footer-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-col{
+    width: 23%;
+    padding: 0 15px;
+}
+
+.footer-col ul{
+    list-style: none;
+}
+
+.footer-col h4{
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+    margin-bottom: 30px;
 
 }
