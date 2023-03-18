@@ -1,18 +1,16 @@
-body{
-min-height : 300px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 
 /*  меню */
 .menu{
 display: inline-block;
-margin: 0px 0px 20px 0px
+margin: 0px 0px 20px 0px;
 }
 
 .topnav {
     background-color: #333;
     overflow: hidden;
     position: fixed;
-
     top: 0px;
     width: 100%;
 }
@@ -37,19 +35,19 @@ margin: 0px 0px 20px 0px
 .active {
     background-color: #4CAF50;
     color: white;
-
 }
 
 /*  footer*/
 
 .footer-container{
-    max-width: 90%;
+    max-width: 1470px;
     margin: auto;
+    line-height: 1.5;
 }
 
 .footer{
     margin: 0;
-    padding: 30px 0 0 0;
+    padding: 25px 0 0 0;
     background-color: rgb(33, 30, 30);
     box-sizing: border-box;
 }
@@ -62,7 +60,7 @@ margin: 0px 0px 20px 0px
 }
 
 .footer-col{
-    width: 23%;
+    width: 22%;
     padding: 0 15px;
 }
 
@@ -71,9 +69,80 @@ margin: 0px 0px 20px 0px
 }
 
 .footer-col h4{
+
     font-size: 18px;
     color: rgb(255, 255, 255);
     text-transform: capitalize;
     margin-bottom: 30px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    position: relative;
+
+}
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 90px;
+}
+
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+.footer-col ul li a{
+
+    margin: 0 0 0 -30px;
+    text-align: left;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration:none;
+    font-weight: 300;
+    color: #bbb;
+    display: block;
+    width: 75%;
+    transform: all 0.3s ease;
+}
+
+.footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transform: all 0.5s ease;
+
+}
+
+.footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
+
+
+}
+
+@media(max-width: 1000px){
+    .footer-col{
+        width: 40%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px){
+    .footer-col{
+        width: 100%;
+
 
 }
