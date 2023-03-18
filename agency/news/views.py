@@ -6,7 +6,7 @@ from .models import *
 menu = ['О сайте', 'Добавь статью', 'Обратная связь', 'войти']
 
 
-def index(request ):
+def index(request):
     posts = News.objects.all()
     return render(request, 'news/index.html', {'title': 'Главная страница',
                                                'menu': menu,
@@ -38,3 +38,4 @@ def archive(request, year):
 
 def PageNotFound(request, exception):
     return HttpResponseNotFound('Ошибка')  # ообработка ошибки
+

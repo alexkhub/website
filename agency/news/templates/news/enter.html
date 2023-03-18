@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>enter</title>
+    <link type="text/css" href="{% static 'news/css/enter_styles.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    <form>
+        <h1>Вход</h1>
+        <div class="form-input">
+            <input type="email" placeholder="Логин">
+        </div>
+
+        <div class="form-input">
+            <input type="password" placeholder="Пароль">
+        </div>
+
+        <div class="form-input">
+            <input type="submit" value="Войти">
+        </div>
+        <a href="#" class = "forget">Забыли пароль?</a>
+
+    </form>
+</body>
+</html>
