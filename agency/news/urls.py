@@ -7,5 +7,6 @@ urlpatterns = [
     path('years/<int:now_year>/', get_year),
     path('config/<str:my_config>/', myconfig),
     path('about/', about, name='about'),
+    path('enter/', enter, name='enter'),
     re_path(r'^archive/(?P<year>[0-9]{4})/', archive),
 ]
