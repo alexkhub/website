@@ -2,23 +2,23 @@
 
 {%block content %}
 
-
-
-
-
-
-
-
 <h2> Спосок новостей</h2>
-<ul class="News">
+
+<div class="news">
+
+
     {%for post in posts %}
-    <li><h2>{{post.title}}</h2>
+    <div class="text_news">
         <hr>
+        <h2>{{post.title}}</h2>
+
         {% autoescape on%}
         <h3>{{post.content|truncatewords:50}}</h3>
         {% endautoescape%}
-        <a href="#" class="red_news">Читать дальше </a>
-    </li>
+        <a href="{{ post.get_absolute_url }}" class="red_news">Читать дальше </a>
+    </div >
+    <div class="img_news"></div>
     {%endfor %}
-</ul>
+    <hr>
+</div>
 {%endblock%}

@@ -44,6 +44,13 @@ def profile(request):
     return render(request, 'news/profile.html', context=context)
 
 
+
+def show_post(request, post_id):
+    return HttpResponse(f"Отоборажение статьи с id = {post_id}")
+
+
+ def regidtration(request):
+     return render(request, 'news/registration.html')
 # функции
 
 
