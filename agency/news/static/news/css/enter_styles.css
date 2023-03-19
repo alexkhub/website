@@ -8,6 +8,7 @@ body{
 
 form {
     position: absolute;
+    padding: 0 0 10px 0;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -59,7 +60,7 @@ form h1{
 
 form a{
     display: block;
-    padding: 0 0 20px;
+    padding: 0 0 20px 0;
     text-align: center;
     color:#fff;
     text-decoration: none;

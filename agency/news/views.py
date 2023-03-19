@@ -3,13 +3,12 @@ from django.http import HttpResponse, HttpResponseNotFound, Http404
 from .models import *
 
 # переменные
-menu = [{'title_menu': 'Главаня страница', 'url_name': '/'},
-        {'title_menu': 'Недвижемость', 'url_name': '/'},  # добаить url и шаблон
-        {'title_menu': 'Профиль', 'url_name': '/'},  # добаить url и шаблон
+menu = [{'title_menu': 'Главаня страница', 'url_name': 'home'},
+        {'title_menu': 'Недвижемость', 'url_name': 'real_estate'},  # добаить url и шаблон
+        {'title_menu': 'Профиль', 'url_name': 'profile'},  # добаить url и шаблон
         {'title_menu': 'О нас', 'url_name': 'about'},  # добаить url и шаблон
         {'title_menu': 'Войти', 'url_name': 'enter'},  # добаить url
         ]
-
 
 
 # страницы
@@ -21,32 +20,31 @@ def index(request):
     return render(request, 'news/index.html', context=context)
 
 
+def real_estate(request):
+    context = {'title': 'Недвижемость',
+               'menu': menu}
+
+    return render(request, 'news/real_estate.html', context=context)
+
+
 def enter(request):
     return render(request, 'news/enter.html')
 
 
-# функции
 def about(request):
-    return render(request, 'news/about.html', {'title': 'О нас',
-                                               'menu': menu})
+    context = {'title': 'О нас',
+               'menu': menu}
+    return render(request, 'news/about.html', context=context)
 
 
-def test(request):
-    return HttpResponse('<h1> Test </h1>')
+def profile(request):
+    context = {
+        'title': 'Профиль',
+        'menu': menu}
+    return render(request, 'news/profile.html', context=context)
 
 
-def get_year(request, now_year):
-    if now_year > 2023:
-        raise Http404()
-    return HttpResponse(f'сейчас {now_year} год')
-
-
-def myconfig(request, my_config):
-    return HttpResponse(f'твой конфиг {my_config}')
-
-
-def archive(request, year):
-    return HttpResponse(f'сейчас {year} год')
+# функции
 
 
 def PageNotFound(request, exception):
