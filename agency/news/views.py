@@ -45,14 +45,16 @@ def profile(request):
 
 
 
-def show_post(request, post_id):
-    return HttpResponse(f"Отоборажение статьи с id = {post_id}")
 
 
- def regidtration(request):
-     return render(request, 'news/registration.html')
+
+def regidtration(request):
+    return render(request, 'news/registration.html')
 # функции
 
 
 def PageNotFound(request, exception):
     return HttpResponseNotFound('Ошибка')  # ообработка ошибки
+
+def show_post(request, post_id):
+    return HttpResponse(f"Отоборажение статьи с id = {post_id}")
