@@ -6,9 +6,30 @@
 
 <div class="news">
 
+    <ul class="nav_news">
 
+        {%if category_selected == 0 %}
+        <li class="selected"> Все категории</li>
+        {%else%}
+
+        <li><<a href="{%url 'home'%}"> Все категории</a></li>
+        {%endif%}
+
+
+    {%for c in category%}
+        {%if c.pk == category_selected%}
+        <li class="selected">{{c.name}}</li>
+        {% else %}
+        <li><a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
+        {%endif%}
+        {%endfor%}
+
+
+    </ul>
     {%for post in posts %}
     <div class="text_news">
+        <p class="category_news">Категории : {{p.catigory}}</p>
+
         <hr>
         <h2>{{post.title}}</h2>
 
@@ -21,4 +42,4 @@
     {%endfor %}
     <hr>
 </div>
-{%endblock%}
+{%endblock content%}

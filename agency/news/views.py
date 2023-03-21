@@ -3,8 +3,8 @@ from django.http import HttpResponse, HttpResponseNotFound, Http404
 from .models import *
 
 # переменные
-menu = [{'title_menu': 'Главаня страница', 'url_name': 'home'},
-        {'title_menu': 'Недвижемость', 'url_name': 'real_estate'},  # добаить url и шаблон
+menu = [{'title_menu': 'Главнaя страница', 'url_name': 'home'},
+        {'title_menu': 'Недвижимость', 'url_name': 'real_estate'},  # добаить url и шаблон
         {'title_menu': 'Профиль', 'url_name': 'profile'},  # добаить url и шаблон
         {'title_menu': 'О нас', 'url_name': 'about'},  # добаить url и шаблон
         {'title_menu': 'Войти', 'url_name': 'enter'},  # добаить url
@@ -13,10 +13,13 @@ menu = [{'title_menu': 'Главаня страница', 'url_name': 'home'},
 
 # страницы
 def index(request):
+    category = Category.objects.all()
     posts = News.objects.all()
     context = {'title': 'Главная страница',
                'menu': menu,
-               'posts': posts}
+               'posts': posts,
+               'category': category,
+               'category_selected': 0 ,}
     return render(request, 'news/index.html', context=context)
 
 
@@ -45,9 +48,6 @@ def profile(request):
 
 
 
-
-
-
 def regidtration(request):
     return render(request, 'news/registration.html')
 # функции
@@ -58,3 +58,15 @@ def PageNotFound(request, exception):
 
 def show_post(request, post_id):
     return HttpResponse(f"Отоборажение статьи с id = {post_id}")
+
+def show_category(request, category_id):
+    category = Category.objects.all()
+    posts = News.objects.filter(category_id=category_id)
+    # if len(posts) == 0:
+    #     raise Http404()
+    context = {'title': 'Главная страница',
+               'menu': menu,
+               'posts': posts,
+               'category': category,
+               'category_selected': 0, }
+    return render(request, 'news/index.html', context=context)
