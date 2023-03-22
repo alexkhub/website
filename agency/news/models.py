@@ -16,6 +16,10 @@ class News(models.Model):
     def get_absolute_url(self):
         return reverse('post', kwargs={'post_id': self.pk}) #абслоютная ссылка
 
+    class Meta:
+        verbose_name= 'Новость'
+        verbose_name_plural = 'Новости'
+
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True)
     description = models.TextField()
