@@ -1,51 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
+/* основные настройки*/
+
+body{
+
+}
+
 
 /*  меню */
-.menu{
-display: inline-block;
-margin: 0px 0px 20px 0px;
-}
 
-.topnav {
-    background-color: #333;
-    overflow: hidden;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-}
-
-.topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 10px 16px;
-    text-decoration: none;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 18px;
-    border: 0.08em solid rgba(105, 105, 105, 0.7);
-}
-
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.active {
-    background-color: #4CAF50;
-    color: white;
-}
 
 /*  footer*/
 
-.footer-container{
+.footer-container
+{
     max-width: 1470px;
     margin: auto;
     line-height: 1.5;
 }
 
-.footer{
+.footer
+{
     margin: 0;
     padding: 25px 0 0 0;
     background-color: rgb(33, 30, 30);
@@ -54,22 +29,25 @@ margin: 0px 0px 20px 0px;
 
 
 
-.footer-row{
+.footer-row
+{
     display: flex;
     flex-wrap: wrap;
 }
 
-.footer-col{
+.footer-col
+{
     width: 22%;
     padding: 0 15px;
 }
 
-.footer-col ul{
+.footer-col ul
+{
     list-style: none;
 }
 
-.footer-col h4{
-
+.footer-col h4
+{
     font-size: 18px;
     color: rgb(255, 255, 255);
     text-transform: capitalize;
@@ -79,7 +57,9 @@ margin: 0px 0px 20px 0px;
     position: relative;
 
 }
-.footer-col h4::before{
+
+.footer-col h4::before
+{
     content: '';
     position: absolute;
     left:0;
@@ -90,10 +70,13 @@ margin: 0px 0px 20px 0px;
     width: 90px;
 }
 
-.footer-col ul li:not(:last-child){
+.footer-col ul li:not(:last-child)
+{
     margin-bottom: 10px;
 }
-.footer-col ul li a{
+
+.footer-col ul li a
+{
 
     margin: 0 0 0 -30px;
     text-align: left;

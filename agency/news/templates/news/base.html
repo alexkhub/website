@@ -15,21 +15,29 @@
 
 </head>
 <body>
-    <div class="menu">
+
     {% block mainmenu%}
     <!-- меню-->
-        <div class="topnav" >
-            {%for m in menu %}
-                    <a href="{% url m.url_name %}" class="active">{{m.title_menu}}</a>
-            {%endfor%}
-          </div>
-    </div>
+    <nav class="topnav" >
+        <ul>
+
+        {%for m in menu %}
+
+            <li><a href="{% url m.url_name %}" class="active">{{m.title_menu}}</a></li>
+        {%endfor%}
+        </ul>
+    </nav>
+
 
     {% endblock mainmenu %}
     {%block content%}
     {%endblock content%}
+
+    
     <h1> {{title}}</h1>
 
+
+    <!-- нижний блок сайта -->
     {% block footer%}
     <footer class="footer">
         <div class="footer-container">
