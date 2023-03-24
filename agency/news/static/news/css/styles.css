@@ -43,16 +43,21 @@ body
     text-decoration : none;
 }
 
-nav .toggle
+.toggle
 {
     width: 100%;
     padding: 10px 20px;
-    background-color: fff;
+    background: #51961d;
     text-align: right;
     box-sizing: border-box;
     color : #fff;
     font-size: 30px;
+    display: none;
 }
+
+
+
+
 
 /*  footer*/
 
@@ -160,6 +165,32 @@ nav .toggle
 
 }
 
+@media (max-width: 900px)
+{
+.toggle
+
+    {
+        display: block;
+    }
+    .topnav ul
+    {
+        width: 100%;
+        display: none;
+    }
+    .topnav ul li
+    {
+        display: block;
+        text-align: center;
+         padding: 8px;
+    }
+    .active
+    {
+        display: block;
+
+    }
+
+}
+
 @media(max-width: 1000px){
     .footer-col{
         width: 40%;
@@ -173,5 +204,7 @@ nav .toggle
 
 
 }
+
+
 
 /* index */

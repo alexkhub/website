@@ -22,7 +22,7 @@
     <!-- меню-->
     <nav class="topnav" >
         <div class="toggle">
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-bars menu"></i>
         </div>
         <ul>
 
@@ -32,7 +32,14 @@
         {%endfor%}
         </ul>
     </nav>
-
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.menu').click(function(){
+                $('ul').toggleClass('active');
+            })
+        })
+    </script>
 
     {% endblock mainmenu %}
     {%block content%}
