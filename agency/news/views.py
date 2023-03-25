@@ -19,7 +19,7 @@ def index(request):
                'menu': menu,
                'posts': posts,
                'category': category,
-               'category_selected': 0 ,}
+               'category_selected': 0, }
     return render(request, 'news/index.html', context=context)
 
 
@@ -47,17 +47,20 @@ def profile(request):
     return render(request, 'news/profile.html', context=context)
 
 
-
 def regidtration(request):
     return render(request, 'news/registration.html')
+
+
 # функции
 
 
 def PageNotFound(request, exception):
     return HttpResponseNotFound('Ошибка')  # ообработка ошибки
 
+
 def show_post(request, post_id):
     return HttpResponse(f"Отоборажение статьи с id = {post_id}")
+
 
 def show_category(request, category_id):
     category = Category.objects.all()
