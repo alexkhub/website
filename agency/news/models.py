@@ -7,7 +7,7 @@ class News(models.Model):
     content = models.TextField(blank=True, verbose_name='Контен')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата редактирования ')
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d/' , verbose_name='Фотография')
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Фотография')
     ispublic = models.BooleanField(default=True, verbose_name='Публикация')
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
 

@@ -1,4 +1,5 @@
 {% extends 'news/base.html' %}
+{% load news_tags %} <!-- Мои теги -->
 
 {%block content %}
 
@@ -16,13 +17,14 @@
             {%endif%}
 
 
+
         {%for c in category%}
             {%if c.pk == category_selected%}
             <li class="selected">{{c.name}}</li>
             {% else %}
             <li><a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
             {%endif%}
-            {%endfor%}
+        {%endfor%}
 
 
         </ul>
@@ -47,5 +49,11 @@
     {%endif%}
     {%endfor%}
     <hr>
+
+    {%get_catigories as catigories%}
+    {% for c in catigories%}
+    <h2>{{c}}</h2>
+    {%endfor%}
+
 </div>
 {%endblock content%}

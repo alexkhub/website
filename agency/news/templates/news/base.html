@@ -1,4 +1,5 @@
 {% load static %}
+{% load news_tags %} <!-- Мои теги -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
           integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-
 </head>
 <body>
 
@@ -34,14 +34,11 @@
         </ul>
     </nav>
 
-
+    <h1> {{title}}</h1>
 
     {% endblock mainmenu %}
     {%block content%}
     {%endblock content%}
-
-    
-    <h1> {{title}}</h1>
 
 
     <!-- нижний блок сайта -->
@@ -91,6 +88,6 @@
         </div>
     </footer>
     {% endblock footer%}
-<script src="{% static 'news/js/main.js' %}"> </script>
+<script src="{% static 'news/js/main.js' %}"> </script> <!-- подключение js-->
 </body>
 </html>
