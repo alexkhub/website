@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
           integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 
 </head>
 <body>
@@ -24,7 +25,7 @@
         <div class="toggle">
             <i class="fa-solid fa-bars menu"></i>
         </div>
-        <ul>
+        <ul id="menu" >
 
         {%for m in menu %}
 
@@ -32,14 +33,8 @@
         {%endfor%}
         </ul>
     </nav>
-    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.menu').click(function(){
-                $('ul').toggleClass('active');
-            })
-        })
-    </script>
+
+
 
     {% endblock mainmenu %}
     {%block content%}
@@ -96,6 +91,6 @@
         </div>
     </footer>
     {% endblock footer%}
-
+<script src="{% static 'news/js/main.js' %}"> </script>
 </body>
 </html>

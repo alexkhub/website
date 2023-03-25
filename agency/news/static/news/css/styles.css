@@ -169,25 +169,27 @@ body
 {
 .toggle
 
-    {
-        display: block;
-    }
-    .topnav ul
-    {
-        width: 100%;
-        display: none;
-    }
-    .topnav ul li
-    {
-        display: block;
-        text-align: center;
-         padding: 8px;
-    }
-    .active
-    {
-        display: block;
+{
+    display: block;
+}
 
-    }
+
+
+#menu
+{
+    width: 100%;
+    display: none;
+    padding-left: 0;
+    
+}
+
+.topnav ul li
+{
+    display: block;
+    text-align: center;
+    padding: 8px;
+}
+
 
 }
 
