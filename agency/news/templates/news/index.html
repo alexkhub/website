@@ -1,9 +1,9 @@
 {% extends 'news/base.html' %}
-{% load news_tags %} <!-- Мои теги -->
+
 
 {%block content %}
 
-<h2> Спосок новостей</h2>
+<h2> Список новостей</h2>
 
 <div class="news">
     <div class="nav_news_block">
@@ -50,10 +50,7 @@
     {%endfor%}
     <hr>
 
-    {%get_catigories as catigories%}
-    {% for c in catigories%}
-    <h2>{{c}}</h2>
-    {%endfor%}
+
 
 </div>
 {%endblock content%}
