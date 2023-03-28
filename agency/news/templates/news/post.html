@@ -18,9 +18,21 @@
 
 	<h1>{{title_news}}</h1>
 	<div  class="contewner">
+		<div class="contewner2">
+			<div class="created_at">
+				<p>Дата создания {{created_at}}</p>
+			</div>
+			<div class="category_selected" >
+				<p>Категория {{category_selected}}</p>
+			</div>
+		</div>
+		<div class="contewner_news">
+    		<img src="{{post.photo.url}}" class="news_img">
+		</div>
 
-    	<img src="{{post.photo.url}}" class="news_img">
-		<p>{{content}}</p>
+		<div  class="contewner_news">
+			<p>{{content}}</p>
+		</div>
 	</div>
 
 	<div class="nav_button">

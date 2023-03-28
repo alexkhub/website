@@ -1,6 +1,7 @@
 body{
     margin: 10px;
     padding: 0;
+    background-color: rgba(199, 208, 212, 0.5);
 
 }
 
@@ -33,7 +34,6 @@ p{
     font-size: 20px;
     background: none;
     outline: none;
-    border: 1px solid #fff;
     box-sizing: border-box;
 
 }
@@ -58,8 +58,17 @@ a{
     transition: 0.3s;
 }
 
-.nav_button a:hover {
+.nav_button a:hover
+{
     background:  rgb(100, 156, 44);
+}
+
+.contewner
+{
+    margin: 0;
+    padding: 0;
+
+
 }
 
 
