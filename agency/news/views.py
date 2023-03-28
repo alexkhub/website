@@ -62,15 +62,15 @@ def get_objects_or_404(News, pk):
     pass
 
 
-def show_post(request, post_id):
+def show_post(request, post_id, News):
     post = get_objects_or_404(News, pk=post_id)
 
     context = {'title': 'Главная страница',
 
                'post': post,
-               'title' : post.title,
+               'title_news' : post.title,
                'photo' : post.photo,
-               'category_selected': 1, }
+               'category_selected': post.category_id, }
     return render(request, 'news/post.html', context=context)
 
 
