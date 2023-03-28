@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseNotFound, HttpResponseNotFound, Http404
 from .models import *
 
@@ -58,19 +58,17 @@ def PageNotFound(request, exception):
     return HttpResponseNotFound('Ошибка')  # ообработка ошибки
 
 
-def get_objects_or_404(News, pk):
-    pass
 
 
-def show_post(request, post_id):
-    post = get_objects_or_404(News, pk=post_id)
+def show_post(request, post_id, News):
+    post = get_object_or_404(News, pk=post_id)
 
     context = {'title': 'Главная страница',
 
                'post': post,
-               'title' : post.title,
+               'title_news' : post.title,
                'photo' : post.photo,
-               'category_selected': 1, }
+               'category_selected': post.category_id, }
     return render(request, 'news/post.html', context=context)
 
 
@@ -83,4 +81,4 @@ def show_category(request, category_id):
                'posts': posts,
                'category': category,
                'category_selected': 0, }
-    return render(request, 'news/index.html', context=context)
+    return render(request, 'news/post.html', context=context)
