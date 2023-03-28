@@ -64,12 +64,13 @@ def PageNotFound(request, exception):
 def show_post(request, post_id):
     post = get_object_or_404(News, pk=post_id)
 
-    context = {'title': 'Главная страница',
+    context = {'title': 'Пост',
 
                'post': post,
                'title' : post.title,
-               'photo' : post.photo,
-               'category_selected': 1, }
+               'content' : post.content,
+               'created_at': post.created_at,
+               'category_selected': post.category, }
     return render(request, 'news/post.html', context=context)
 
 
