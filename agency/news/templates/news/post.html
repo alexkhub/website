@@ -3,7 +3,7 @@
 <html lang="ru">
 
 <head>
-	<title>test</title>
+	<title>{{title}}</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link type="text/css" href="{% static 'news/css/post_styles.css' %}" rel="stylesheet">
@@ -12,21 +12,20 @@
 	<link href="https://fonts.googleapis.com/css2?family=Andika:ital@1&display=swap" rel="stylesheet">
 
 
-	<link rel="stylesheet" type = "text/css" href="styles.css" />
-
-
 </head>
 
 <body>
 
-	<h1>iuy</h1>
-    <img src="https://www.russiadiscovery.ru/upload/files/files/Kavkazskie_gory.jpg", class="news_img">
-    <p>Россия богата природными красотами. А что может быть прекраснее гор!
-         Скалы, уходящие в море, заснеженные макушки и вековые ледники, поросшие лесами склоны.
-         Горы России в разное время притягивали как обычных туристов, так и профессиональных альпинистов, которые пытаются покорить вершины на немыслимой высоте.
-    </p>
+	<h1>{{title_news}}</h1>
+	<div  class="contewner">
+
+    	<img src="{{post.photo.url}}" class="news_img">
+		<p>{{content}}</p>
+	</div>
+
 	<div class="nav_button">
-		<a href="#">На главную</a>
+
+		<a href="{% url 'home' %}">На главную</a>
 	</div>
 
 

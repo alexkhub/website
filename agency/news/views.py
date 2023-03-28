@@ -67,7 +67,7 @@ def show_post(request, post_id):
     context = {'title': 'Пост',
 
                'post': post,
-               'title' : post.title,
+               'title_news' : post.title,
                'content' : post.content,
                'created_at': post.created_at,
                'category_selected': post.category, }
