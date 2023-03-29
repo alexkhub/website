@@ -75,20 +75,23 @@ padding: 0;
 margin: 0;
 width:100%;
 display: flex;
-background: #000;
+background-color: rgba(128, 128, 128, 0.7);
 }
 
-.create_at{
+.created_at{
 text-align: left;
-display:block;
+display: block;
 width: 49%;
 
 }
 
-category_selected{
-text-align: left;
-display:block;
+.category_selected {
+display: block;
 width: 49%;
+
 }
 
+.category_selected p {
+text-align: right;
+}
 
