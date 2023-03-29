@@ -72,9 +72,23 @@ a{
 }
 .contewner2{
 padding: 0;
+margin: 0;
 width:100%;
-display: block;
+display: flex;
 background: #000;
+}
+
+.create_at{
+text-align: left;
+display:block;
+width: 49%;
+
+}
+
+category_selected{
+text-align: left;
+display:block;
+width: 49%;
 }
 
 
