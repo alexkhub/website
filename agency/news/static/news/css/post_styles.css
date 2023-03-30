@@ -106,3 +106,20 @@ text-align: right;
     display: inline-flex;
     margin: 0;
 }
+
+@media(max-width: 800px)
+{
+    .news_img
+    {
+        width: 100%;
+    }
+    .created_at
+    {
+        width: 100%;
+    }
+
+    .category_selected
+    {
+        width: 100%;
+    }
+}
