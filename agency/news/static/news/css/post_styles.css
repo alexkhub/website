@@ -1,5 +1,5 @@
 body{
-    margin: 10px;
+    margin: 0;
     padding: 0;
     background-color: rgba(128, 128, 128, 0.5);
 
@@ -13,10 +13,12 @@ h1{
 }
 
 .news_img{
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 40px;
+
+    margin: 0;
+    padding: 0;
+    max-height: 900px;
+    margin-right: 20px;
+    max-width: 60%;
 }
 
 p{
@@ -67,9 +69,8 @@ a{
 {
     margin: 0;
     padding: 0;
-
-
 }
+
 .contewner2{
 padding: 0;
 margin: 0;
@@ -95,3 +96,13 @@ width: 49%;
 text-align: right;
 }
 
+.contewner_news_text{
+    width: 100%;
+    display: inline-flex;
+    margin: 0;
+}
+
+.contewner_news_photo{
+    display: inline-flex;
+    margin: 0;
+}
