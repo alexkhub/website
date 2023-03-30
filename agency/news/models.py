@@ -5,6 +5,7 @@ from django.urls import reverse
 class News(models.Model):
     title = models.CharField(max_length=100, verbose_name='Заголовок')
     content = models.TextField(blank=True, verbose_name='Контен')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата редактирования ')
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Фотография')
@@ -24,8 +25,9 @@ class News(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100, db_index=True , verbose_name="Название")
+    name = models.CharField(max_length=100, db_index=True, verbose_name="Название")
     description = models.TextField( verbose_name="Описание")
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
 
     def __str__(self):
         return self.name
