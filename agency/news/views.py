@@ -61,8 +61,8 @@ def PageNotFound(request, exception):
 
 
 
-def show_post(request, post_id):
-    post = get_object_or_404(News, pk=post_id)
+def show_post(request, post_slug):
+    post = get_object_or_404(News, slug=post_slug)
 
     context = {'title': 'Пост',
 
@@ -74,9 +74,9 @@ def show_post(request, post_id):
     return render(request, 'news/post.html', context=context)
 
 
-def show_category(request, category_id):
+def show_category(request, category_slug):
     category = Category.objects.all()
-    posts = News.objects.filter(category_id=category_id)
+    posts = News.objects.filter(slug=category_slug)
 
     context = {'title': 'Главная страница',
                'menu': menu,

@@ -18,7 +18,8 @@ h1{
     padding: 0;
     max-height: 900px;
     margin-right: 20px;
-    max-width: 60%;
+
+
 }
 
 p{
@@ -100,6 +101,8 @@ text-align: right;
     width: 100%;
     display: inline-flex;
     margin: 0;
+
+
 }
 
 .contewner_news_photo{
@@ -111,15 +114,18 @@ text-align: right;
 {
     .news_img
     {
+        display: block;
         width: 100%;
     }
     .created_at
     {
+        display: block;
         width: 100%;
     }
 
     .category_selected
     {
+        display: block;
         width: 100%;
     }
 }
