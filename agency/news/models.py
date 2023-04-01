@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from django.contrib.auth.models import AbstractUser
 
 class News(models.Model):
     title = models.CharField(max_length=100, verbose_name='Заголовок')
@@ -33,9 +33,13 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('category', kwargs={'slug': self.slug})
+        return reverse('category', kwargs={'category_slug': self.slug})
 
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         ordering = ['-name'] # обратное направление
+
+class User(AbstractUser):
+    class Meta(AbstractUser):
+        swappable = 'AUTH_USER_MODEL'
