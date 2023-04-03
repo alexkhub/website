@@ -19,7 +19,8 @@ def index(request):
                'menu': menu,
                'posts': posts,
                'category': category,
-               'category_selected': '', }
+               'category_selected': 0,
+               }
     return render(request, 'news/index.html', context=context)
 
 

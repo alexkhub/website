@@ -8,7 +8,7 @@ class NewsAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content')  # поиск
     list_editable = ('ispublic',)  # возможность уредактирования
     list_filter = ('ispublic', 'created_at')  # фильтр
-    prepopulated_fields = {"slug": ("title",)} #  заполнение поля slug
+    prepopulated_fields = {"slug": ("title",)} # заполнение поля slug
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')

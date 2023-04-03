@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import AbstractUser
 
+
 class News(models.Model):
     title = models.CharField(max_length=100, verbose_name='Заголовок')
     content = models.TextField(blank=True, verbose_name='Контен')
@@ -40,6 +41,27 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
         ordering = ['-name'] # обратное направление
 
-class User(AbstractUser):
-    class Meta(AbstractUser):
-        swappable = 'AUTH_USER_MODEL'
+class CustomUser(AbstractUser):
+    Gender = (
+        ('М', 'Мужчина'),
+        ('Ж', 'Женщина'),
+    )
+
+
+    surname = models.CharField(max_length=20, verbose_name='Фамилия ')
+    name = models.CharField(max_length=20, verbose_name="Имя")
+    patronymic = models.CharField(max_length=20, verbose_name="Отчество")
+    genger = models.CharField(max_length=1, verbose_name="Пол", choices=Gender)
+    nikname = models.CharField(max_length=50, verbose_name="Никнейм", unique=True)
+    password = models.CharField(max_length=50, verbose_name="Пароль")
+    email = models.EmailField(verbose_name="Почта", unique=True)
+    phone = models.CharField(max_length=20, verbose_name="Телефон", unique=True, blank=True)
+    slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL')
+    birthday = models.DateTimeField(verbose_name='Дата рождения')
+    registration_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата регистрации')
+    last_visit = models.DateTimeField(auto_now=True, verbose_name='Последнее посещение')
+    avatar = models.ImageField(upload_to='avatars/%Y/%m/%d/', verbose_name='Аватарки')
+
+
+
+
