@@ -16,6 +16,9 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     prepopulated_fields = {"slug": ("name", )}
 
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('id', )
 
 admin.site.register(News, NewsAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(User, UserAdmin)
