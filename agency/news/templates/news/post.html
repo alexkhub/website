@@ -18,16 +18,17 @@
 
 	<h1>{{title_news}}</h1>
 	<div  class="contewner">
-		<div class="contewner2">
-			<div class="created_at">
-				<p>Дата создания {{created_at}}</p>
+		<div class="contewner2" >
+			<div class="created_at create_inf">
+				Дата создания: {{created_at}}
 			</div>
-			<div class="category_selected" >
-				<p>Категория {{category_selected}}</p>
+			<div class="category_selected create_inf" >
+				Категория {{category_selected}}
 			</div>
 		</div>
-		<div class="contewner_news_photo">
-			<p class="contewner_news_text"><img src="{{post.photo.url}}" class="news_img" align="top" />{{content|linebreaks}}</p>
+		<div class="contewner3">
+			<img src="{{post.photo.url}}"  class="news_img"  />
+			<div class="contewner_news_text">{{content|linebreaks}}</div>
 		</div>
 
 
