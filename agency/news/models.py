@@ -65,7 +65,7 @@ class Services(models.Models):
     name = models.CharField(max_length=50, verbose_name='Услуга', unique=True,)
     description = models.TextField(verbose_name='Описание',)
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
-    ordering = ['name']
+
 
     def get_absolute_url(self):
         return reverse('real_estate', kwargs={'Services_slug': self.slug})
@@ -87,7 +87,7 @@ class Сategories_real_estate(models.Model):
         verbose_name_plural = 'Категории помещений'
 
 
-
+#cделать таблицу городов
 
 
 
@@ -96,7 +96,24 @@ class Real_estate(models.Model):
     city = models.CharField(max_length=50, verbose_name='Город')
     street = models.CharField(max_length=50, verbose_name='Улица')
     address = models.CharField(max_length=50, verbose_name='Адрес')
-    category_name = models.ForeignKey('Сategories_real_estate' )
+    category_name = models.ForeignKey('Сategories_real_estate', on_delete=models.CASCADE, null=True)
+    services = models.ForeignKey('Services', on_delete=models.PROTECT, null=True)
+    status = models.BooleanField(default=False , verbose_name='Статус')
+    aray = models.FloatField(verbose_name='площадь',)
+    price =models.FloatField(verbose_name='цена',)
+    description = models.TextField(verbose_name='Описание', blank=True)
+    slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
+
+    def get_absolute_url(self):
+        return reverse('real_estate', kwargs={'Real_estate': self.slug})
+
+    class Meta:
+        verbose_name = 'Объект недвижимости'
+        verbose_name_plural = 'Объекты недвижимости'
+        order_by = ['city', 'street']
+
+
+
 
 
 
