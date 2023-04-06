@@ -51,6 +51,19 @@ class User(AbstractUser):
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', blank=True)
     birthday = models.DateTimeField(verbose_name='Дата рождения', blank=True, null=True)
     avatar = models.ImageField(upload_to='avatars/%Y/%m/%d/', verbose_name='Аватарки',  blank=True)
+    def get_absolute_url(self):
+        return reverse('profile', kwargs={'User_slug': self.slug})
+
+    class Meta:
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователи'
+
+
+# class Real_estate(models.Model):
+#     user = models.ForeignKey('User', on_delete=models.PROTECT, null=True)
+#     city = models.CharField(max_length=50, verbose_name='Город')
+#     street = models.CharField(max_length=50, verbose_name='Улица')
+#     address = models.CharField(max_length=50, verbose_name='Адрес')
 
 
 
