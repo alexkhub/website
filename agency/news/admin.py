@@ -36,10 +36,22 @@ class ServicesAdmin(admin.ModelAdmin):
 
 class Сategories_real_estateAdmin(admin.ModelAdmin):
     list_display = ('id', 'category_name', 'description')
-    list_display_links = ('name',)
+    list_display_links = ('category_name',)
     list_editable = ('description',)
     prepopulated_fields = {"slug": ("category_name",)}
 
+class CityAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', )
+    prepopulated_fields = {"slug": ("name",)}
+
+
+
+class Real_estateImagesAdmin(admin.ModelAdmin):
+    list_display = ('id', 'real_estate')
+
+
+#доделать админ класс real_estate
+class Real_estate
 
 # подлючение к админке
 admin.site.register(News, NewsAdmin)
@@ -47,3 +59,5 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(User, UserAdmin)
 admin.site.register(Services, ServicesAdmin)
 admin.site.register(Сategories_real_estate, Сategories_real_estateAdmin)
+admin.site.register(City, CityAdmin)
+admin.site.register(Real_estateImages, Real_estateImagesAdmin)

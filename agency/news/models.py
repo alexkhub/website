@@ -52,6 +52,9 @@ class User(AbstractUser):
     birthday = models.DateTimeField(verbose_name='Дата рождения', blank=True, null=True)
     avatar = models.ImageField(upload_to='avatars/%Y/%m/%d/', verbose_name='Аватарки',  blank=True)
     description = models.TextField(verbose_name="О себе", blank=True)
+
+    def __str__(self):
+        return self.username
     def get_absolute_url(self):
         return reverse('profile', kwargs={'User_slug': self.slug})
 
@@ -66,9 +69,10 @@ class Services(models.Models):
     description = models.TextField(verbose_name='Описание',)
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
-
+    def __str__(self):
+        return self.name
     def get_absolute_url(self):
-        return reverse('real_estate', kwargs={'Services_slug': self.slug})
+        return reverse('real_estate', kwargs={'services_slug': self.slug})
 
     class Meta:
         verbose_name = 'Услуга'
@@ -79,24 +83,50 @@ class Сategories_real_estate(models.Model):
     description = models.TextField(verbose_name='Описание', )
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
+    def __str__(self):
+        return self.name
+
     def get_absolute_url(self):
-        return reverse('real_estate', kwargs={'Сategories_real_estate': self.slug})
+        return reverse('real_estate', kwargs={'categories_real_estate': self.slug})
 
     class Meta:
         verbose_name = 'Категория помещений'
         verbose_name_plural = 'Категории помещений'
 
 
-#cделать таблицу городов
+class City(models.Model):
+    name= models.CharField(max_length=50, verbose_name='Город')
+    slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('real_estate', kwargs={'city': self.slug})
+
+    class Meta:
+        verbose_name = 'Город'
+        verbose_name_plural = 'Города'
+
+
+
+class Real_estateImages(models.Model):
+    real_estate = models.ForeignKey('Real_estate', verbose_name='Отель', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='real_estate/%Y/%m/%d/',  verbose_name='Изображение', blank=True)
+
+    class Meta:
+        ordering = ['real_estate']
+        verbose_name = 'Фотография '
+        verbose_name_plural = 'Фотографии'
 
 
 
 class Real_estate(models.Model):
     user = models.ForeignKey('User', on_delete=models.PROTECT, null=True)
-    city = models.CharField(max_length=50, verbose_name='Город')
+    city = models.ForeignKey('City', on_delete=models.CASCADE, verbose_name='Город')
     street = models.CharField(max_length=50, verbose_name='Улица')
     address = models.CharField(max_length=50, verbose_name='Адрес')
-    category_name = models.ForeignKey('Сategories_real_estate', on_delete=models.CASCADE, null=True)
+    category_name = models.ForeignKey('Сategories_real_estate', on_delete=models.CASCADE, null=True, verbose_name='Категория')
     services = models.ForeignKey('Services', on_delete=models.PROTECT, null=True)
     status = models.BooleanField(default=False , verbose_name='Статус')
     aray = models.FloatField(verbose_name='площадь',)
@@ -105,7 +135,7 @@ class Real_estate(models.Model):
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
     def get_absolute_url(self):
-        return reverse('real_estate', kwargs={'Real_estate': self.slug})
+        return reverse('real_estate', kwargs={'real_estate': self.slug})
 
     class Meta:
         verbose_name = 'Объект недвижимости'
