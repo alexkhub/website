@@ -64,7 +64,7 @@ class User(AbstractUser):
         ordering = ['last_name', 'first_name', 'username']
 
 
-class Services(models.Models):
+class Services(models.Model):
     name = models.CharField(max_length=50, verbose_name='Услуга', unique=True,)
     description = models.TextField(verbose_name='Описание',)
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
@@ -134,15 +134,20 @@ class Real_estate(models.Model):
     description = models.TextField(verbose_name='Описание', blank=True)
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
+
     def get_absolute_url(self):
+        return reverse('real_estate', kwargs={'full_address': self.slug})
+
+    def get_full_address(self):
+        self.slug = f'{self.city}_{self.street}_{self.address}'
+        return self.full_address
 
 
-        return reverse('real_estate', kwargs={'real_estate': self.slug})
 
     class Meta:
         verbose_name = 'Объект недвижимости'
         verbose_name_plural = 'Объекты недвижимости'
-        order_by = ['city', 'street']
+        ordering = ['city', 'street']
 
 
 

@@ -51,12 +51,12 @@ class Real_estateImagesAdmin(admin.ModelAdmin):
 
 
 #доделать админ класс real_estate
-class Real_estate(admin.ModelAdmin):
+class Real_estateAdmin(admin.ModelAdmin):
     list_display = ('id', 'city', 'street', 'address', 'status', 'aray', 'price')
     list_display_links = ('id', 'city', 'street', )
     list_filter = ('id', 'city', 'aray', 'price')
     list_editable = ('status',)
-    prepopulated_fields = {'slug' : ()}
+    prepopulated_fields = {'slug' : ('get_full_address',)}
 
 
 # подлючение к админке
@@ -67,3 +67,4 @@ admin.site.register(Services, ServicesAdmin)
 admin.site.register(Сategories_real_estate, Сategories_real_estateAdmin)
 admin.site.register(City, CityAdmin)
 admin.site.register(Real_estateImages, Real_estateImagesAdmin)
+admin.site.register(Real_estate, Real_estateAdmin)
