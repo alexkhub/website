@@ -135,6 +135,8 @@ class Real_estate(models.Model):
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
     def get_absolute_url(self):
+
+
         return reverse('real_estate', kwargs={'real_estate': self.slug})
 
     class Meta:

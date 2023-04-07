@@ -51,7 +51,13 @@ class Real_estateImagesAdmin(admin.ModelAdmin):
 
 
 #доделать админ класс real_estate
-class Real_estate
+class Real_estate(admin.ModelAdmin):
+    list_display = ('id', 'city', 'street', 'address', 'status', 'aray', 'price')
+    list_display_links = ('id', 'city', 'street', )
+    list_filter = ('id', 'city', 'aray', 'price')
+    list_editable = ('status',)
+    prepopulated_fields = {'slug' : ()}
+
 
 # подлючение к админке
 admin.site.register(News, NewsAdmin)
