@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import AbstractUser
+from django.utils.text import slugify
 
 
 class News(models.Model):
@@ -27,7 +28,7 @@ class News(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name="Название")
-    description = models.TextField( verbose_name="Описание")
+    description = models.TextField(verbose_name="Описание")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
 
     def __str__(self):
@@ -39,7 +40,8 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Категория новости'
         verbose_name_plural = 'Категории новостей'
-        ordering = ['-name'] # обратное направление
+        ordering = ['-name']  # обратное направление
+
 
 class User(AbstractUser):
     Gender = (
@@ -50,11 +52,12 @@ class User(AbstractUser):
     phone = models.CharField(max_length=20, verbose_name="Телефон", unique=True, blank=True)
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', blank=True)
     birthday = models.DateTimeField(verbose_name='Дата рождения', blank=True, null=True)
-    avatar = models.ImageField(upload_to='avatars/%Y/%m/%d/', verbose_name='Аватарки',  blank=True)
+    avatar = models.ImageField(upload_to='avatars/%Y/%m/%d/', verbose_name='Аватарки', blank=True)
     description = models.TextField(verbose_name="О себе", blank=True)
 
     def __str__(self):
         return self.username
+
     def get_absolute_url(self):
         return reverse('profile', kwargs={'User_slug': self.slug})
 
@@ -65,12 +68,13 @@ class User(AbstractUser):
 
 
 class Services(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Услуга', unique=True,)
-    description = models.TextField(verbose_name='Описание',)
+    name = models.CharField(max_length=50, verbose_name='Услуга', unique=True, )
+    description = models.TextField(verbose_name='Описание', )
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
     def __str__(self):
         return self.name
+
     def get_absolute_url(self):
         return reverse('real_estate', kwargs={'services_slug': self.slug})
 
@@ -78,13 +82,14 @@ class Services(models.Model):
         verbose_name = 'Услуга'
         verbose_name_plural = 'Услуги'
 
+
 class Сategories_real_estate(models.Model):
     category_name = models.CharField(max_length=50, verbose_name='Категории', unique=True, )
     description = models.TextField(verbose_name='Описание', )
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
     def __str__(self):
-        return self.name
+        return self.category_name
 
     def get_absolute_url(self):
         return reverse('real_estate', kwargs={'categories_real_estate': self.slug})
@@ -95,7 +100,7 @@ class Сategories_real_estate(models.Model):
 
 
 class City(models.Model):
-    name= models.CharField(max_length=50, verbose_name='Город')
+    name = models.CharField(max_length=50, verbose_name='Город')
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
     def __str__(self):
@@ -109,10 +114,9 @@ class City(models.Model):
         verbose_name_plural = 'Города'
 
 
-
 class Real_estateImages(models.Model):
     real_estate = models.ForeignKey('Real_estate', verbose_name='Отель', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='real_estate/%Y/%m/%d/',  verbose_name='Изображение', blank=True)
+    image = models.ImageField(upload_to='real_estate/%Y/%m/%d/', verbose_name='Изображение', blank=True)
 
     class Meta:
         ordering = ['real_estate']
@@ -120,40 +124,28 @@ class Real_estateImages(models.Model):
         verbose_name_plural = 'Фотографии'
 
 
-
 class Real_estate(models.Model):
     user = models.ForeignKey('User', on_delete=models.PROTECT, null=True)
     city = models.ForeignKey('City', on_delete=models.CASCADE, verbose_name='Город')
     street = models.CharField(max_length=50, verbose_name='Улица')
     address = models.CharField(max_length=50, verbose_name='Адрес')
-    category_name = models.ForeignKey('Сategories_real_estate', on_delete=models.CASCADE, null=True, verbose_name='Категория')
+    category_name = models.ForeignKey('Сategories_real_estate', on_delete=models.CASCADE, null=True,
+                                      verbose_name='Категория')
     services = models.ForeignKey('Services', on_delete=models.PROTECT, null=True)
-    status = models.BooleanField(default=False , verbose_name='Статус')
-    aray = models.FloatField(verbose_name='площадь',)
-    price =models.FloatField(verbose_name='цена',)
+    status = models.BooleanField(default=False, verbose_name='Статус')
+    aray = models.FloatField(verbose_name='площадь', )
+    price = models.FloatField(verbose_name='цена', )
     description = models.TextField(verbose_name='Описание', blank=True)
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
-
 
     def get_absolute_url(self):
         return reverse('real_estate', kwargs={'full_address': self.slug})
 
-    def get_full_address(self):
-        self.slug = f'{self.city}_{self.street}_{self.address}'
-        return self.full_address
-
-
+    def get_full_address(self, *args, **kwargs):
+        self.slug = slugify(f'{str(self.city)}-{str(self.street)}_{str(self.address)}', lowercase=True)
+        super(Real_estate, self).get_full_address(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Объект недвижимости'
         verbose_name_plural = 'Объекты недвижимости'
         ordering = ['city', 'street']
-
-
-
-
-
-
-
-
-

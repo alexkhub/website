@@ -56,7 +56,7 @@ class Real_estateAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'city', 'street', )
     list_filter = ('id', 'city', 'aray', 'price')
     list_editable = ('status',)
-    prepopulated_fields = {'slug' : ('get_full_address',)}
+    prepopulated_fields = {'slug' : ('slug',)}
 
 
 # подлючение к админке
