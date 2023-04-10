@@ -51,6 +51,12 @@ def profile(request):
 def regidtration(request):
     return render(request, 'news/registration.html')
 
+def add_real_estate(request):
+    context = {
+        'title': 'Разместить на сайте ',
+        'menu': menu}
+    return render(request, 'news/add_real_estate.html', context=context)
+
 
 # функции
 

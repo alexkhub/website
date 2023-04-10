@@ -9,5 +9,6 @@ urlpatterns = [
     path('enter/', enter, name='enter'),
     path('post/<slug:post_slug>/', show_post, name='post'),
     path('category/<slug:category_slug>/', show_category, name='category'),
+    path('add_real_estate/', add_real_estate, name='add_real_estate'),
 
 ]
