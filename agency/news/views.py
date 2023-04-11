@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseNotFound, HttpResponseNotFound, Http404
 from .models import *
-
+from .forms import *
 # переменные
 menu = [{'title_menu': 'Главнaя страница', 'url_name': 'home'},
         {'title_menu': 'Недвижимость', 'url_name': 'real_estate'},  # добаить url и шаблон
@@ -51,10 +51,15 @@ def profile(request):
 def regidtration(request):
     return render(request, 'news/registration.html')
 
+
+#работа с формой
 def add_real_estate(request):
+    form = Add_Real_estateForm()
     context = {
         'title': 'Разместить на сайте ',
-        'menu': menu}
+        'menu': menu,
+        'form': form,
+                }
     return render(request, 'news/add_real_estate.html', context=context)
 
 
