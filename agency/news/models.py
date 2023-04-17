@@ -115,7 +115,7 @@ class City(models.Model):
 
 
 class Real_estateImages(models.Model):
-    real_estate = models.ForeignKey('Real_estate', verbose_name='Отель', on_delete=models.CASCADE)
+    real_estate = models.ForeignKey('Real_estate', verbose_name='Помещение ', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='real_estate/%Y/%m/%d/', verbose_name='Изображение', blank=True)
 
     class Meta:
@@ -142,12 +142,13 @@ class Real_estate(models.Model):
 
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(f'{str(self.city)}-{str(self.street)}_{str(self.address)}', lowercase=True)
-        super(Real_estate, self).save(*args, **kwargs)
+        if not self.slug:
+          self.slug = slugify(f'{str(self.city)}-{str(self.street)}-{str(self.address)}', lowercase=True)
+        super().save(*args, **kwargs)
 
 
     def get_absolute_url(self):
-        return reverse('real_estate', kwargs={'full_address': self.slug})
+        return reverse('real_estate', kwargs={'slug': self.slug})
 
     class Meta:
         verbose_name = 'Объект недвижимости'
