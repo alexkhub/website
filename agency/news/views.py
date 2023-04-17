@@ -62,6 +62,9 @@ def add_real_estate(request):
                 }
     return render(request, 'news/add_real_estate.html', context=context)
 
+def show_real_estate(request):
+    return render(request, 'news/show_real_estate.html')
+
 
 # функции
 

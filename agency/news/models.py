@@ -129,6 +129,7 @@ class Real_estate(models.Model):
     city = models.ForeignKey('City', on_delete=models.CASCADE, verbose_name='Город')
     street = models.CharField(max_length=50, verbose_name='Улица')
     address = models.CharField(max_length=50, verbose_name='Адрес')
+
     category_name = models.ForeignKey('Сategories_real_estate', on_delete=models.CASCADE, null=True,
                                       verbose_name='Категория')
     services = models.ForeignKey('Services', on_delete=models.PROTECT, null=True)
@@ -138,12 +139,15 @@ class Real_estate(models.Model):
     description = models.TextField(verbose_name='Описание', blank=True)
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
+
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(f'{str(self.city)}-{str(self.street)}_{str(self.address)}', lowercase=True)
+        super(Real_estate, self).save(*args, **kwargs)
+
+
     def get_absolute_url(self):
         return reverse('real_estate', kwargs={'full_address': self.slug})
-
-    def get_full_address(self, *args, **kwargs):
-        self.slug = slugify(f'{str(self.city)}-{str(self.street)}_{str(self.address)}', lowercase=True)
-        super(Real_estate, self).get_full_address(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Объект недвижимости'

@@ -10,5 +10,7 @@ urlpatterns = [
     path('post/<slug:post_slug>/', show_post, name='post'),
     path('category/<slug:category_slug>/', show_category, name='category'),
     path('add_real_estate/', add_real_estate, name='add_real_estate'),
+    path('show_real_estate/', show_real_estate, name='show_real_estate'),
+
 
 ]
