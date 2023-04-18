@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseNotFound, HttpResponseNotFound, Http404
 from .models import *
 from .forms import *
@@ -54,9 +54,20 @@ def regidtration(request):
 
 #работа с формой
 def add_real_estate(request):
-    form = Add_Real_estateForm()
+    if request.method == 'POST':
+        form = Add_Real_estateForm(request.POST)
+        if form.is_valid():
+            try:
+                Real_estate.objects.create(**form.cleaned_data)
+                return redirect('real_estate')
+            except:
+                form.add_error(None, 'Ошибка добавления ')
+    else:
+        form = Add_Real_estateForm()
+
+
     context = {
-        'title': 'Разместить на сайте ',
+        'title': 'Разместить на сайте',
         'menu': menu,
         'form': form,
                 }

@@ -139,13 +139,10 @@ class Real_estate(models.Model):
     description = models.TextField(verbose_name='Описание', blank=True)
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
-
-
     def save(self, *args, **kwargs):
         if not self.slug:
-          self.slug = slugify(f'{str(self.city)}-{str(self.street)}-{str(self.address)}', lowercase=True)
+            self.slug = slugify(f'{str(self.city)}-{str(self.street)}-{str(self.address)}', lowercase=True)
         super().save(*args, **kwargs)
-
 
     def get_absolute_url(self):
         return reverse('real_estate', kwargs={'slug': self.slug})

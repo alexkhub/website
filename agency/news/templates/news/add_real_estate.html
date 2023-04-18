@@ -5,6 +5,8 @@
 <form action="{% url 'add_real_estate' %}" method="post">
     {% csrf_token%}
 
+    <div class="form-error">{{form.non.field_errors}}</div>
+
     {% for f in form%}
     <p><label class="form-real-estate" for="{{f.id_for_label}}">{{f.label}}: </label>{{f}}</p>
     <div class="form-error">{{f.errors }}</div>
