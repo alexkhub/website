@@ -4,7 +4,7 @@ from .models import *
 
 # формы
 class Add_Real_estateForm(forms.Form):
-    user = forms.ModelChoiceField(queryset=User.objects.all(), label='Никнейм')
+    user = forms.ModelChoiceField(queryset=User.objects.all(), label='Никнейм', widget=forms.TextInput(attrs={'class': 'form-add-real-estate-choice'}))
     city = forms.ModelChoiceField(queryset=City.objects.all(), label='Город', empty_label='Город не выбран')
     street = forms.CharField(max_length=50, label='Улица')
     address = forms.CharField(max_length=50, label='Адрес')
