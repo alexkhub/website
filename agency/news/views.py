@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseNotFound, HttpResponseNotFound, Http404
+from django.views.generic import ListView
 from .models import *
 from .forms import *
 # переменные
@@ -10,18 +11,23 @@ menu = [{'title_menu': 'Главнaя страница', 'url_name': 'home'},
         {'title_menu': 'Войти', 'url_name': 'enter'},  # добаить url
         ]
 
+# страницы
+class Home(ListView):
+    model = News
+    template_name = 'news/index.html'
+
 
 # страницы
-def index(request):
-    category = Category.objects.all()
-    posts = News.objects.all()
-    context = {'title': 'Главная страница',
-               'menu': menu,
-               'posts': posts,
-               'category': category,
-               'category_selected': 0,
-               }
-    return render(request, 'news/index.html', context=context)
+# def index(request):
+#     category = Category.objects.all()
+#     posts = News.objects.all()
+#     context = {'title': 'Главная страница',
+#                'menu': menu,
+#                'posts': posts,
+#                'category': category,
+#                'category_selected': 0,
+#                }
+#     return render(request, 'news/index.html', context=context)
 
 
 def real_estate(request):
