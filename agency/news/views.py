@@ -3,6 +3,9 @@ from django.http import HttpResponseNotFound, HttpResponseNotFound, Http404
 from django.views.generic import ListView
 from .models import *
 from .forms import *
+
+
+
 # переменные
 menu = [{'title_menu': 'Главнaя страница', 'url_name': 'home'},
         {'title_menu': 'Недвижимость', 'url_name': 'real_estate'},  # добаить url и шаблон
@@ -15,7 +18,13 @@ menu = [{'title_menu': 'Главнaя страница', 'url_name': 'home'},
 class Home(ListView):
     model = News
     template_name = 'news/index.html'
+    context_object_name = 'posts'
 
+    def get_context_data(self, object_list=None, *args, **kwargs ):
+        context = super().get_context_data(**kwargs)
+        context['menu'] = menu
+        context['title']= 'Главная страница'
+        return context
 
 # страницы
 # def index(request):

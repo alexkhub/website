@@ -3,58 +3,67 @@
 
 {%block content %}
 
-<h2> Список новостей</h2>
-
-<div class="news">
-    <div class="nav_news_block">
-        <ul class="nav_news">
-
-            {%if category_selected == 0 %}
-            <li class="selected"> Все категории</li>
-            {%else%}
-
-            <li><<a href="{%url 'home'%}"> Все категории</a></li>
-            {%endif%}
+<div class="index-main">
 
 
 
-        {%for c in category%}
-            {%if c.slug == category_selected  %}
 
-            <li class="selected">{{c.name}}</li>
-            {% else %}
-            <li><a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
 
-            {%endif%}
+
+
+    <h2> Список новостей</h2>
+
+    <div class="news">
+        <div class="nav_news_block">
+            <ul class="nav_news">
+
+                {%if category_selected == 0 %}
+                <li class="selected"> Все категории</li>
+                {%else%}
+
+                <li><<a href="{%url 'home'%}"> Все категории</a></li>
+                {%endif%}
+
+
+
+            {%for c in category%}
+                {%if c.slug == category_selected  %}
+
+                <li class="selected">{{c.name}}</li>
+                {% else %}
+                <li><a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
+
+                {%endif%}
+            {%endfor%}
+
+
+
+            </ul>
+            <p>{{category_selected}}</p>
+        </div>
+        {%for post in posts %}
+        <div class="text_news">
+            <p class="category_news">Категории : {{post.category}}</p>
+
+            <hr>
+            <h2>{{post.title}}</h2>
+
+            {%autoescape on%}
+            <h3>{{post.content|truncatewords:50}}</h3>
+            {%endautoescape%}
+            <a href="{{ post.get_absolute_url}}" class="red_news">Читать дальше </a>
+        </div >
+        <div class="block_img_news">
+        {%if post.photo%}
+            <p><img  class="img_news" src="{{post.photo.url}}" width="100" height="100"></p>
+
+        </div>
+        {%endif%}
         {%endfor%}
-
-
-
-        </ul>
-        <p>{{category_selected}}</p>
-    </div>
-    {%for post in posts %}
-    <div class="text_news">
-        <p class="category_news">Категории : {{post.category}}</p>
-
         <hr>
-        <h2>{{post.title}}</h2>
 
-        {%autoescape on%}
-        <h3>{{post.content|truncatewords:50}}</h3>
-        {%endautoescape%}
-        <a href="{{ post.get_absolute_url}}" class="red_news">Читать дальше </a>
-    </div >
-    <div class="block_img_news">
-    {%if post.photo%}
-        <p><img  class="img_news" src="{{post.photo.url}}" width="100" height="100"></p>
+
 
     </div>
-    {%endif%}
-    {%endfor%}
-    <hr>
-
-
-
 </div>
 {%endblock content%}
