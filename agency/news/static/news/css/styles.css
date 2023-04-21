@@ -176,7 +176,7 @@ body
 
 
 
-#menu
+/* меню */
 {
     width: 100%;
     display: none;
@@ -213,6 +213,21 @@ body
 
 /* index */
 .index-main{
-    background-color: rgba(245, 245, 220, 0,5)
+    background-color: rgba(245, 245, 220, 0.5);
+    padding : 0 10px;
+    margin : 10 px;
 }
+.index_photo{
+    width: 100%
 
+}
+.index_photo_text{
+    position: absolute;
+    padding: 0 0 10px 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(245, 245, 220, 0.5);
+    font-size: 50px;
+
+}
