@@ -17,6 +17,7 @@
     color: rgba(245, 245, 220, 0.5);
     font-size: 50px;
 
+
 }
 div,h1,p,a,img,section{
     margin:0;
@@ -71,8 +72,9 @@ div,h1,p,a,img,section{
 }
  #about_service_new .items_service_new .item_service_new .img img{
     max-width:565px;
-    height:auto;
+    border-radius: 30px;
 }
+
 
 
  #about_service_new .items_service_new .item_service_new .img{
