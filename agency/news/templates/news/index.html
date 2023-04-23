@@ -1,5 +1,9 @@
 {% extends 'news/base.html' %}
+{% load static %}
 
+{% block css_additional %} <!-- подгружаем css --, указать ссыклку на css file-->
+	<link type="text/css" href="{% static 'news/css/index.css' %}" rel="stylesheet">
+{% endblock css_additional %}
 
 {%block content %}
 
@@ -7,17 +11,17 @@
 
     <div>
         <img class="index_photo" src="https://gamerwall.pro/uploads/posts/2022-05/1652371911_3-gamerwall-pro-p-kirpichnii-dom-minimalizm-oboi-krasivo-3.jpg">
-        <p class="index_photo_text">Работает</p>
+        <p class="index_photo_text">Хз что писать</p>
     </div>
 
     <section id="about_service_new">
 		<p class="head_new_about">
-			Наши сервисы
+			О компании
 		</p>
 		<div class="items_service_new">
 			<div class="item_service_new">
 				<div class="img">
-					<img alt="STARBUS - Сервис по покупке билетов на автобусы" src="/bitrix/templates/default/images/starbus_first_img.jpg" title="STARBUS - Сервис по покупке билетов на автобусы">
+					<img alt="Эверест - Сервис по покупке и сдачи в аренду помещений" src="/static/news/img/img1.jpg" title="Эверест - Сервис по покупке и сдачи в аренду помещений">
 				</div>
 				<div class="info">
 					<p class="p_headserviceitem">
