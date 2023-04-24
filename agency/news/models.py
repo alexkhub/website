@@ -18,7 +18,7 @@ class News(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('post', kwargs={'post_slug': self.slug})  # абслоютная ссылка
+        return reverse('category', kwargs={'category_slug': self.slug})  # абслоютная ссылка
 
     class Meta:  # админка
         verbose_name = 'Новость'

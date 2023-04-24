@@ -103,6 +103,7 @@
 
 
             {%for c in category%}
+
                 {%if c.slug == category_selected  %}
 
                 <li class="selected">{{c.name}}</li>
@@ -119,7 +120,7 @@
         </div>
         {%for post in posts %}
         <div class="text_news">
-            <p class="category_news">Категории : {{post.category}}</p>
+            <p class="category_news">Категория : {{post.category}}</p>
 
             <hr>
             <h2>{{post.title}}</h2>

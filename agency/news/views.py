@@ -29,17 +29,7 @@ class Home(ListView):
     def get_queryset(self):
         return News.objects.filter(ispublic=True)
 
-# страницы
-# def index(request):
-#     category = Category.objects.all()
-#     posts = News.objects.all()
-#     context = {'title': 'Главная страница',
-#                'menu': menu,
-#                'posts': posts,
-#                'category': category,
-#                'category_selected': 0,
-#                }
-#     return render(request, 'news/index.html', context=context)
+
 
 
 def real_estate(request):
@@ -118,13 +108,10 @@ def show_post(request, post_slug):
     return render(request, 'news/post.html', context=context)
 
 
-def show_category(request, category_slug):
-    category = Category.objects.all()
-    posts = News.objects.filter(slug=category_slug)
+class NewsCategory(ListView):
+    model= News
+    template_name = 'news/index.html'
+    context_object_name = 'posts'
 
-    context = {'title': 'Главная страница',
-               'menu': menu,
-               'posts': posts,
-               'category': category,
-               'category_selected': None, }
-    return render(request, 'news/index.html', context=context)
+    def get_queryset(self):
+        return News.objects.filter(category__slug=self.kwargs['category_slug'], ispubkic=True)
