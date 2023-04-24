@@ -24,7 +24,10 @@ class Home(ListView):
         context = super().get_context_data(**kwargs)
         context['menu'] = menu
         context['title']= 'Главная страница'
+        context['category_selected'] = None
         return context
+    def get_queryset(self):
+        return News.objects.filter(ispublic=True)
 
 # страницы
 # def index(request):
@@ -123,5 +126,5 @@ def show_category(request, category_slug):
                'menu': menu,
                'posts': posts,
                'category': category,
-               'category_selected': 0, }
+               'category_selected': None, }
     return render(request, 'news/index.html', context=context)
