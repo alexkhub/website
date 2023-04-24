@@ -128,7 +128,7 @@ div,h1,p,a,img,section{
     -webkit-box-shadow:0 3px 12px rgba(0,0,0,0.1);
     box-shadow:0 3px 12px rgba(0,0,0,0.1);
     background-image:-webkit-gradient(linear,left top,right top,color-stop(0,#f3bf5b),to(#f3a757));
-    background-image:linear-gradient(90deg,#f3bf5b 0,#f3a757 100%);
+    background-image:linear-gradient(90deg,#4CAF50 0,#4CAF50 100%);
     display:block;
     text-decoration:none;
     margin-top:40px;
