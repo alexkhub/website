@@ -21,9 +21,7 @@ class GenerateCategorys:
         return Category.objects.filter()
 
 
-class FilterNews(GenerateCategorys, ListView):
-    def get_queryset(self):
-        queryset=News.objects.filter(category)
+
 
 
 # страницы
@@ -123,7 +121,7 @@ def show_post(request, post_slug):
 
 
 class NewsCategory(GenerateCategorys, ListView):
-    model= News
+    model = News
     template_name = 'news/index.html'
     context_object_name = 'posts'
 

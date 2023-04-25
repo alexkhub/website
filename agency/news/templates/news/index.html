@@ -93,10 +93,10 @@
         <div class="nav_news_block">
 
             <ul class="nav_news">
-				<li><a href="/"> Все категории  </a></li>
+				<li><a  href="/" id="full_cat"> Все категории  </a></li>
 				{%for genre in view.get_category %}
 
-				<li><a href="/"> {{genre.name}}  </a></li>
+				<li><a href="/"id={{genre.slug}}> {{genre.name}}  </a></li>
 				{%endfor%}
 
             </ul>
