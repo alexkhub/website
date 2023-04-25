@@ -14,8 +14,20 @@ menu = [{'title_menu': 'Главнaя страница', 'url_name': 'home'},
         {'title_menu': 'Войти', 'url_name': 'enter'},  # добаить url
         ]
 
+# родительские классы
+class GenerateCategorys:
+    #вывод всех категорий
+    def get_category(self):
+        return Category.objects.filter()
+
+
+class FilterNews(GenerateCategorys, ListView):
+    def get_queryset(self):
+        queryset=News.objects.filter(category)
+
+
 # страницы
-class Home(ListView):
+class Home(GenerateCategorys, ListView):
     model = News
     template_name = 'news/index.html'
     context_object_name = 'posts'
@@ -27,7 +39,9 @@ class Home(ListView):
         context['category_selected'] = None
         return context
     def get_queryset(self):
+        #проверка на публиуацию
         return News.objects.filter(ispublic=True)
+
 
 
 
@@ -108,10 +122,10 @@ def show_post(request, post_slug):
     return render(request, 'news/post.html', context=context)
 
 
-class NewsCategory(ListView):
+class NewsCategory(GenerateCategorys, ListView):
     model= News
     template_name = 'news/index.html'
     context_object_name = 'posts'
 
     def get_queryset(self):
-        return News.objects.filter(category__slug=self.kwargs['category_slug'], ispubkic=True)
+        return News.objects.filter(category__slug=self.kwargs['category_slug'], ispublic=True)
