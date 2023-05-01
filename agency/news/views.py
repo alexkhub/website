@@ -4,8 +4,6 @@ from django.views.generic import ListView
 from .models import *
 from .forms import *
 
-
-
 # переменные
 menu = [{'title_menu': 'Главнaя страница', 'url_name': 'home'},
         {'title_menu': 'Недвижимость', 'url_name': 'real_estate'},  # добаить url и шаблон
@@ -14,34 +12,24 @@ menu = [{'title_menu': 'Главнaя страница', 'url_name': 'home'},
         {'title_menu': 'Войти', 'url_name': 'enter'},  # добаить url
         ]
 
-# родительские классы
-class GenerateCategorys:
-    #вывод всех категорий
-    def get_category(self):
-        return Category.objects.filter()
-
-
-
-
 
 # страницы
-class Home(GenerateCategorys, ListView):
+class Home(ListView):
     model = News
     template_name = 'news/index.html'
     context_object_name = 'posts'
 
-    def get_context_data(self, object_list=None, *args, **kwargs ):
+    def get_context_data(self, object_list=None, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context['menu'] = menu
-        context['title']= 'Главная страница'
+        context['title'] = 'Главная страница'
+        context['categorys'] = Category.objects.all()
         context['category_selected'] = None
         return context
+
     def get_queryset(self):
-        #проверка на публиуацию
+        # проверка на публиуацию
         return News.objects.filter(ispublic=True)
-
-
-
 
 
 def real_estate(request):
@@ -72,7 +60,7 @@ def regidtration(request):
     return render(request, 'news/registration.html')
 
 
-#работа с формой
+# работа с формой
 def add_real_estate(request):
     if request.method == 'POST':
         form = Add_Real_estateForm(request.POST)
@@ -85,13 +73,13 @@ def add_real_estate(request):
     else:
         form = Add_Real_estateForm()
 
-
     context = {
         'title': 'Разместить на сайте',
         'menu': menu,
         'form': form,
-                }
+    }
     return render(request, 'news/add_real_estate.html', context=context)
+
 
 def show_real_estate(request):
     return render(request, 'news/show_real_estate.html')
@@ -104,26 +92,14 @@ def PageNotFound(request, exception):
     return HttpResponseNotFound('Ошибка')  # ообработка ошибки
 
 
-
-
-
 def show_post(request, post_slug):
     post = get_object_or_404(News, slug=post_slug)
 
     context = {'title': 'Пост',
 
                'post': post,
-               'title_news' : post.title,
-               'content' : post.content,
+               'title_news': post.title,
+               'content': post.content,
                'created_at': post.created_at,
                'category_selected': post.category, }
     return render(request, 'news/post.html', context=context)
-
-
-class NewsCategory(GenerateCategorys, ListView):
-    model = News
-    template_name = 'news/index.html'
-    context_object_name = 'posts'
-
-    def get_queryset(self):
-        return News.objects.filter(category__slug=self.kwargs['category_slug'], ispublic=True)
