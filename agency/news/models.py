@@ -18,7 +18,9 @@ class News(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('', kwargs={'category_slug': self.slug})  # абслоютная ссылка
+
+        return reverse('home', kwargs={'news_slug': self.slug})  # абслоютная ссылка
+
 
     class Meta:  # админка
         verbose_name = 'Новость'
@@ -140,8 +142,7 @@ class Real_estate(models.Model):
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
 
-    def __str__(self):
-        return self.city, self.street, self.address
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(f'{str(self.city)}-{str(self.street)}-{str(self.address)}', lowercase=True)
