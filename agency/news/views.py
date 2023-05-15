@@ -78,12 +78,15 @@ class Show_Real_Estate(DataMixin, DetailView):
     context_object_name = 'real_estate'
 
 
+class Profile(LoginRequiredMixin, DataMixin, ListView):
+    model = User
+    template_name = 'news/profile.html'
 
-def profile(request):
-    context = {
-        'title': 'Профиль',
-        'menu': menu}
-    return render(request, 'news/profile.html', context=context)
+    def get_context_data(self, object_list=None, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context()  # передаем переменные из DataMixin
+        context['title'] = 'Профиль'
+        return dict(list(context.items()) + list(c_def.items()))  # объединение данных
 
 
 def regidtration(request):

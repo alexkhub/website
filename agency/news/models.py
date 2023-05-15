@@ -116,14 +116,7 @@ class City(models.Model):
         verbose_name_plural = 'Города'
 
 
-class Real_estateImages(models.Model):
-    real_estate = models.ForeignKey('Real_estate', verbose_name='Помещение ', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='real_estate/%Y/%m/%d/', verbose_name='Изображение', blank=True)
 
-    class Meta:
-        ordering = ['real_estate']
-        verbose_name = 'Фотография '
-        verbose_name_plural = 'Фотографии'
 
 
 class Real_estate(models.Model):
@@ -139,6 +132,7 @@ class Real_estate(models.Model):
     aray = models.FloatField(verbose_name='площадь', )
     price = models.FloatField(verbose_name='цена', )
     description = models.TextField(verbose_name='Описание', blank=True)
+    first_photo = models.ImageField(upload_to='real_estate_first/%Y/%m/%d/', verbose_name='Изображение', blank=True)
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
 
 
@@ -155,3 +149,12 @@ class Real_estate(models.Model):
         verbose_name = 'Объект недвижимости'
         verbose_name_plural = 'Объекты недвижимости'
         ordering = ['city', 'street']
+
+class Real_estateImages(models.Model):
+    real_estate = models.ForeignKey('Real_estate', verbose_name='Помещение ', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='real_estate/%Y/%m/%d/', verbose_name='Изображение', blank=True)
+
+    class Meta:
+        ordering = ['real_estate']
+        verbose_name = 'Фотография '
+        verbose_name_plural = 'Фотографии'
