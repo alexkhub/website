@@ -183,3 +183,21 @@ div,h1,p,a,img,section{
     font-weight:normal;
     font-style:normal;
 }
+
+.news a {
+    display: block;
+    margin : 0 0 0 40px;
+    font-size : 18px;
+}
+
+
+.news a h3:hover{
+    color: #4CAF50;
+
+
+}
+
+.news h2{
+    text-align: center
+
+}

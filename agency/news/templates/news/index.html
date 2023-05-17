@@ -87,21 +87,22 @@
 
 
 
-    <h2> Список новостей</h2>
+
 
     <div class="news">
+       <h2> Список новостей</h2>
 
 
       <div class="news_text">
          {%for post in posts%}
-            <h3>Название статьи {{post.title}}</h3>
-         <a href="{% url 'post' post.slug %}">Перейти </a>
+         <a href="{% url 'post' post.slug %}"> <h3>Название статьи {{post.title}}</h3> </a>
          {%endfor%}
 
 
 
 
 
-    </div>
+       </div>
+   </div>
 </div>
 {%endblock content%}
