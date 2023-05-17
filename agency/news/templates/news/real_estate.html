@@ -17,7 +17,7 @@
 
                 {%for real_estate in real_estates%}
 
-                <a data-name="Link" href="{% url 'show_real_estate'  %}" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
+                <a data-name="Link" href="{% url 'show_real_estate' real_estate.slug %}" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
                   <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;{{real_estate.first_photo.url}}&quot;);"></div>
                   <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu"></span><span class="_025a50318d--c-popular-block-title-class--ReN6e"></span></span><span class="_025a50318d--c-popular-price-range--NhWha"> Цена {{real_estate.price}}&nbsp;руб</span></span>
                     <div class="_025a50318d--c-popular-address--tIqEk"> {{real_estate.city}} {{real_estate.street}} {{real_estate.address}}</div>
