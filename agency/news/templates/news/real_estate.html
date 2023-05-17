@@ -7,96 +7,27 @@
 
 
 <a href="{% url 'add_real_estate' %}">Продать</a>
-<a href="{% url 'show_real_estate' %}">Посмотреть</a>
+
 <div data-name="TopJK">
-        <h2 class="_025a50318d--c-popular-title--xVXQK">Популярные ЖК во Владикавказе<a data-name="Link" href="/promo/adv/#top3" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-title-additional-link--OWWpD">Как сюда попасть?</a></h2>
+
         <div class="c-tabs _025a50318d--c-popular-tabs--fA44s">
           <div data-name="PopularContent" class="с-tabs-content">
             <div class="c-tabs-tab-content">
               <div class="_025a50318d--c-popular-block-wrap--WNSeg cg-row">
-                <a data-name="Link" href="https://vladikavkaz.cian.ru/zhiloy-kompleks-ilinka-3-vladikavkaz-3845204/" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
-                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;https://cdn-p.cian.site/images/16/721/221/ilinka-3-vladikavkaz-jk-1221276181-7.jpg&quot;);"></div>
-                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu">Ильинка 3</span><span class="_025a50318d--c-popular-block-title-class--ReN6e">ОБЪЕКТ СДАН</span></span><span class="_025a50318d--c-popular-price-range--NhWha">от&nbsp;<!-- -->2,6 млн.<!-- -->&nbsp;до&nbsp;<!-- -->5,7 млн.<!-- -->&nbsp;руб.</span></span>
-                    <div class="_025a50318d--c-popular-address--tIqEk">Республика Северная Осетия — Алания, Владикавказ, улица Курсантов-Кировцев, 15Д</div>
+
+                {%for real_estate in real_estates%}
+
+                <a data-name="Link" href="{% url 'show_real_estate'  %}" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
+                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;{{real_estate.first_photo.url}}&quot;);"></div>
+                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu"></span><span class="_025a50318d--c-popular-block-title-class--ReN6e"></span></span><span class="_025a50318d--c-popular-price-range--NhWha"> Цена {{real_estate.price}}&nbsp;руб</span></span>
+                    <div class="_025a50318d--c-popular-address--tIqEk"> {{real_estate.city}} {{real_estate.street}} {{real_estate.address}}</div>
+                    <div class="_025a50318d--c-popular-address--tIqEk"> Площадь {{real_estate.aray}}м&#178</div>
                   </div>
-                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Застройщик
-                  «Ильинка»</span></div>
+                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Владелец {{real_estate.user}}</span></div>
                 </a>
-                <a data-name="Link" href="https://vladikavkaz.cian.ru/zhiloy-kompleks-vesna-vladikavkaz-2019965/" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
-                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;https://cdn-p.cian.site/images/8/461/239/vesna-vladikavkaz-jk-932164836-7.jpg&quot;);"></div>
-                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu">Весна</span><span class="_025a50318d--c-popular-block-title-class--ReN6e">СДАЧА В  2023</span></span><span class="_025a50318d--c-popular-price-range--NhWha">от&nbsp;<!-- -->2,14 млн.<!-- -->&nbsp;до&nbsp;<!-- -->6,94 млн.<!-- -->&nbsp;руб.</span></span>
-                    <div class="_025a50318d--c-popular-address--tIqEk">Республика Северная Осетия — Алания, Владикавказ, Северо-Западный округ, Весенняя улица</div>
-                  </div>
-                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Застройщик
-                  «СТК-59»</span></div>
-                </a>
-                <a data-name="Link" href="https://vladikavkaz.cian.ru/zhiloy-kompleks-po-ul-stahanova-2-vladikavkaz-45204/" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
-                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;https://cdn-p.cian.site/images/9/032/153/po-ul-stahanova-2-vladikavkaz-jk-351230902-7.jpg&quot;);"></div>
-                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu">по ул. Стаханова, 2</span><span class="_025a50318d--c-popular-block-title-class--ReN6e">ОБЪЕКТ СДАН</span></span>
-                    </span>
-                    <div class="_025a50318d--c-popular-address--tIqEk">Республика Северная Осетия — Алания, Владикавказ, улица Стаханова, 2</div>
-                  </div>
-                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Застройщик
-                  «Архстрой-Осетия»</span></div>
-                </a>
-                <a data-name="Link" href="https://vladikavkaz.cian.ru/zhiloy-kompleks-raketa-vladikavkaz-4042085/" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
-                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;https://cdn-p.cian.site/images/61/351/431/raketa-vladikavkaz-jk-1341531600-7.jpg&quot;);"></div>
-                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu">Ракета</span><span class="_025a50318d--c-popular-block-title-class--ReN6e">СДАЧА В  2023</span></span>
-                    </span>
-                    <div class="_025a50318d--c-popular-address--tIqEk">Республика Северная Осетия — Алания, Владикавказ, Ардонская улица, 260</div>
-                  </div>
-                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Застройщик
-                  «ТрансМонолитСервис»</span></div>
-                </a>
-                <a data-name="Link" href="https://vladikavkaz.cian.ru/zhiloy-kompleks-po-ul-cokolaeva-vladikavkaz-45238/" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
-                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;https://cdn-p.cian.site/images/6/377/153/po-ul-cokolaeva-vladikavkaz-jk-351773612-7.jpg&quot;);"></div>
-                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu">по ул. Цоколаева</span><span class="_025a50318d--c-popular-block-title-class--ReN6e">ОБЪЕКТ СДАН</span></span><span class="_025a50318d--c-popular-price-range--NhWha">от&nbsp;<!-- -->2,67 млн.<!-- -->&nbsp;до&nbsp;<!-- -->4 млн,<!-- -->&nbsp;руб.</span></span>
-                    <div class="_025a50318d--c-popular-address--tIqEk">Республика Северная Осетия — Алания, Владикавказ, улица Цоколаева</div>
-                  </div>
-                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Застройщик
-                  «СТМ»</span></div>
-                </a>
-                <a data-name="Link" href="https://vladikavkaz.cian.ru/zhiloy-kompleks-po-ul-z-magkaeva-83k3-vladikavkaz-45286/" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
-                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;https://cdn-p.cian.site/images/0/278/253/po-ul-z-magkaeva-83k3-vladikavkaz-jk-352872026-7.jpg&quot;);"></div>
-                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu">по ул. З. Магкаева, 83к3</span><span class="_025a50318d--c-popular-block-title-class--ReN6e">ОБЪЕКТ СДАН</span></span><span class="_025a50318d--c-popular-price-range--NhWha">от&nbsp;<!-- -->2,4 млн.<!-- -->&nbsp;до&nbsp;<!-- -->7,5 млн.<!-- -->&nbsp;руб.</span></span>
-                    <div class="_025a50318d--c-popular-address--tIqEk">Республика Северная Осетия — Алания, Владикавказ, улица Зураба Магкаева</div>
-                  </div>
-                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Застройщик
-                  «Азимут-М»</span></div>
-                </a>
-                <a data-name="Link" href="https://vladikavkaz.cian.ru/zhiloy-kompleks-po-ul-gagkaeva-vladikavkaz-3716558/" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
-                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;https://cdn-p.cian.site/images/21/248/611/po-ul-gagkaeva-vladikavkaz-jk-1168421296-7.jpg&quot;);"></div>
-                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu">по ул. Гагкаева</span><span class="_025a50318d--c-popular-block-title-class--ReN6e">СДАЧА В  2023</span></span>
-                    </span>
-                    <div class="_025a50318d--c-popular-address--tIqEk">Республика Северная Осетия — Алания, Владикавказ, улица Алихана Гагкаева</div>
-                  </div>
-                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Застройщик
-                  «ЖСК (Алания)»</span></div>
-                </a>
-                <a data-name="Link" href="https://vladikavkaz.cian.ru/zhiloy-kompleks-sard-vladikavkaz-3529875/" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
-                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;https://cdn-p.cian.site/images/30/483/311/sard-vladikavkaz-jk-1133840351-7.jpg&quot;);"></div>
-                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu">SARD (САРД)</span><span class="_025a50318d--c-popular-block-title-class--ReN6e">СДАЧА В  2023</span></span><span class="_025a50318d--c-popular-price-range--NhWha">от&nbsp;<!-- -->3,06 млн.<!-- -->&nbsp;до&nbsp;<!-- -->10,5 млн.<!-- -->&nbsp;руб.</span></span>
-                    <div class="_025a50318d--c-popular-address--tIqEk">Республика Северная Осетия — Алания, Владикавказ, улица Гастелло</div>
-                  </div>
-                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Застройщик
-                  «САРД»</span></div>
-                </a>
-                <a data-name="Link" href="https://vladikavkaz.cian.ru/zhiloy-kompleks-po-ul-hadarceva-vladikavkaz-45239/" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
-                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;https://cdn-p.cian.site/images/7/587/153/po-ul-astana-kesaeva-vladikavkaz-jk-351785775-7.jpg&quot;);"></div>
-                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu">по ул. Хадарцева</span><span class="_025a50318d--c-popular-block-title-class--ReN6e">СДАЧА В  2024</span></span><span class="_025a50318d--c-popular-price-range--NhWha">от&nbsp;<!-- -->2,47 млн.<!-- -->&nbsp;до&nbsp;<!-- -->10,5 млн.<!-- -->&nbsp;руб.</span></span>
-                    <div class="_025a50318d--c-popular-address--tIqEk">Республика Северная Осетия — Алания, Владикавказ, улица Астана Кесаева</div>
-                  </div>
-                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Застройщик
-                  «СТМ»</span></div>
-                </a>
-                <a data-name="Link" href="https://vladikavkaz.cian.ru/zhiloy-kompleks-mkr-novyy-gorod-poziciya-29-vladikavkaz-3850129/" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
-                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4"></div>
-                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu">мкр. Новый город (позиция 29)</span><span class="_025a50318d--c-popular-block-title-class--ReN6e">ОБЪЕКТ СДАН</span></span><span class="_025a50318d--c-popular-price-range--NhWha">от&nbsp;<!-- -->2,7 млн.<!-- -->&nbsp;до&nbsp;<!-- -->5,8 млн.<!-- -->&nbsp;руб.</span></span>
-                    <div class="_025a50318d--c-popular-address--tIqEk">Республика Северная Осетия — Алания, Владикавказ, проспект Героев Отечества, 7</div>
-                  </div>
-                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Застройщик
-                  «СЗ ЕВА»</span></div>
-                </a>
+
+                {%endfor%}
+
               </div>
             </div>
           </div>

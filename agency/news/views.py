@@ -4,11 +4,9 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-
 from .models import *
 from .forms import *
 from .utils import *
-
 
 # переменные
 
@@ -24,8 +22,6 @@ menu = [{'title_menu': 'Главнaя страница', 'url_name': 'home'},
 
 class Home(DataMixin, ListView):
     """Основная страница """
-
-
 
     model = News
     template_name = 'news/index.html'
@@ -45,7 +41,6 @@ class Home(DataMixin, ListView):
         return News.objects.filter(ispublic=True)
 
 
-
 class ShowPost(DetailView):
     """Просмотр поста """
     model = News
@@ -54,7 +49,7 @@ class ShowPost(DetailView):
     context_object_name = 'post'
 
 
-class Real_Estate( DataMixin, ListView):
+class Real_Estate(DataMixin, ListView):
     model = Real_estate
     template_name = 'news/real_estate.html'
     context_object_name = 'real_estates'
@@ -68,7 +63,7 @@ class Real_Estate( DataMixin, ListView):
 
     def get_queryset(self):
         # проверка на публиуацию
-        return Real_estate.objects.filter(status=False)
+        return Real_estate.objects.filter(status=True)
 
 
 class Show_Real_Estate(DataMixin, DetailView):
@@ -96,11 +91,12 @@ def regidtration(request):
 # работа с формой
 
 
-class Add_Real_Esate(LoginRequiredMixin,DataMixin,  CreateView):
+class Add_Real_Esate(LoginRequiredMixin, DataMixin, CreateView):
     form_class = Add_Real_estateForm
     template_name = 'news/add_real_estate.html'
     success_url = reverse_lazy('real_estate')  # отправление пользователя по ссылке
-    login_url = reverse_lazy('enter') # перенаправляет пользователя на страницу входа
+    login_url = reverse_lazy('enter')  # перенаправляет пользователя на страницу входа
+
     def get_context_data(self, object_list=None, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context()  # передаем переменные из DataMixin

@@ -128,9 +128,9 @@ class Real_estate(models.Model):
     category_name = models.ForeignKey('Сategories_real_estate', on_delete=models.CASCADE, null=True,
                                       verbose_name='Категория')
     services = models.ForeignKey('Services', on_delete=models.PROTECT, null=True)
-    status = models.BooleanField(default=False, verbose_name='Статус')
+    status = models.BooleanField(default=True, verbose_name='Статус')
     aray = models.FloatField(verbose_name='площадь', )
-    price = models.FloatField(verbose_name='цена', )
+    price = models.IntegerField( verbose_name='цена')
     description = models.TextField(verbose_name='Описание', blank=True)
     first_photo = models.ImageField(upload_to='real_estate_first/%Y/%m/%d/', verbose_name='Изображение', blank=True)
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
