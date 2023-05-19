@@ -148,13 +148,13 @@ class Real_estate(models.Model):
     class Meta:
         verbose_name = 'Объект недвижимости'
         verbose_name_plural = 'Объекты недвижимости'
-        ordering = ['city', 'street']
+        ordering = ['id']
 
 class Real_estateImages(models.Model):
-    real_estate = models.ForeignKey('Real_estate', verbose_name='Помещение ', on_delete=models.CASCADE)
+    real_estate = models.ForeignKey('Real_estate', verbose_name='Помещение', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='real_estate/%Y/%m/%d/', verbose_name='Изображение', blank=True)
 
     class Meta:
         ordering = ['real_estate']
-        verbose_name = 'Фотография '
+        verbose_name = 'Фотография'
         verbose_name_plural = 'Фотографии'

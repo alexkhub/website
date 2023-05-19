@@ -51,6 +51,7 @@ class ShowPost(DetailView):
 
 class Real_Estate(DataMixin, ListView):
     model = Real_estate
+    paginate_by = 3
     template_name = 'news/real_estate.html'
     context_object_name = 'real_estates'
 

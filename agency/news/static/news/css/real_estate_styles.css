@@ -46,19 +46,19 @@
 	cursor:pointer;
 	border-bottom:1px solid transparent;
 	min-height:18px;
-	color:#2b87db;
+	color:#4CAF50;
 	line-height:18px;
 	text-decoration:none;
 }
  ._025a50318d--c-link-default--hFc6Z:hover{
-	border-bottom-color:#b6d3ed;
+	border-bottom-color: rgb(100, 156, 44);
 	color:#256ba5;
 }
  ._025a50318d--c-selfads-item-button--o9HKW{
 	display:inline-block;
 	border:0;
 	border-radius:14px;
-	background-color:#2b87db;
+	background-color:#4CAF50;
 	padding:4px 16px;
 	height:28px;
 	color:#fff;
@@ -66,7 +66,7 @@
 }
  ._025a50318d--c-selfads-item-button--o9HKW:hover{
 	box-shadow:0;
-	background-color:#256ba5;
+	background-color:rgb(100, 156, 44);
 	color:#fff;
 }
  ._025a50318d--c-selfad-single-content--A3YuU{
@@ -220,4 +220,73 @@
 }
  ._025a50318d--c-all-propositions--L3hUs:last-of-type{
 	margin-bottom:38px;
+}
+/* paginator*/
+
+ .paginator_container div,span{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:0 0;
+}
+ .paginator_container a{
+	padding:0;
+	margin:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:0 0;
+}
+ .paginator_container,::after,::before{
+	box-sizing:border-box;
+}
+ .paginator_container a{
+	word-break:break-word;
+}
+ .paginator_container a{
+	background-color:transparent;
+}
+
+}
+ .paginator_container a:active,a:hover{
+	color:#d61523;
+	text-decoration:underline;
+}
+ .paginator_container .pagination a{
+	border-radius:3px;
+	display:inline-block;
+}
+ .paginator_container .pagination{
+	align-items:center;
+	display:flex;
+	justify-content:center;
+}
+ .paginator_container .pagination{
+	margin:2rem 0;
+}
+ .paginator_container .pagination a{
+	border:1px solid #20aa76;
+	margin:0 .5rem;
+	padding:.1rem 1rem;
+}
+ .paginator_container .pagination a:hover{
+	background-color:#dcffdf;
+	color:#20aa76;
+}
+ .paginator_container .pagination__current a{
+	background-color:#20aa76!important;
+	color:#fff!important;
+}
+ .paginator_container .index__grid__2__footer{
+	text-align:center;
+}
+ @media (min-width:1024px){
+	 .index__grid__2__footer{
+		grid-column:1/span 2;
+	}
+}
+ .paginator_container ::selection{
+	background:#c9f0dd;
 }

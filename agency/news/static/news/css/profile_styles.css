@@ -1,0 +1,180 @@
+.profile-main {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.profile-main-container {
+    width: 60%;
+    height: 650px;
+    background-color: #1B1B1B;
+    border: 2px solid black;
+    border-radius: 7px;
+    margin: 20px 80px;
+    padding: 3% 10%;
+}
+
+.profile-main-container .button-save {
+    text-align: center;
+}
+
+.top-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile_photo {
+    margin-right: 40px;
+    flex-basis: 17%;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1B1B1B;
+    border: 2px solid #333131;
+    transition: 0.3s ease-in-out;
+}
+
+.profile_photo img {
+    height: 150px;
+}
+
+
+.profile_photo p {
+
+    color: white;
+}
+
+.profile-header {
+    flex-basis: 82%;
+    height: 150px;
+    border-radius: 7px;
+    background-color: #1B1B1B;
+    border: 2px solid #333131;
+    transition: 0.3s ease-in-out;
+    color: white;
+}
+
+.profile-header p {
+    padding: 8px 8px;
+}
+
+.profile-header__item-password a {
+    margin-left: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.profile-header__item-upload-photo input[type="file"] {
+    margin-left: 10px;
+}
+
+/* NICKNAME, PASSWORD AND LOGIN, ABOUT, DONWLOAD */
+
+.other-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.other-content > div textarea {
+    color: white;
+}
+
+.other-content-nickname {
+    width: 100%;
+}
+
+.other-content__item-nickname textarea {
+    height: 25px;
+    width: 99%;
+    margin: 30px 0 0 0;
+    resize: none;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #1B1B1B;
+    border: 2px solid #333131;
+    transition: 0.3s ease-in-out;
+}
+
+
+.other-content-about {
+    width: 100%;
+}
+
+.other-content__item-about textarea {
+    height: 100px;
+    width: 99%;
+    resize: none;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    margin: 20px 0;
+    background-color: #1B1B1B;
+    border: 2px solid #333131;
+    transition: 0.3s ease-in-out;
+}
+
+#password {
+    margin: 0 65px 0 0;
+}
+
+.other-content__item-password  {
+    display: flex;
+}
+
+.other-content-password {
+    width: 100%;
+}
+
+.other-content__item-password textarea {
+    flex-basis: 49%;
+    resize: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+    height: 25px;
+    background-color: #1B1B1B;
+    border: 2px solid #333131;
+    transition: 0.3s ease-in-out;
+}
+
+.other-content-donwload {
+    width: 100%;
+}
+
+.other-content__item-donwload {
+    width: 99%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    margin: 20px 0;
+    background-color: #1B1B1B;
+    border: 2px solid #333131;
+    transition: 0.3s ease-in-out;
+}
+
+.other-content__item-donwload p {
+    color: white;
+}
+
+/* SAVE-BUTTON */
+
+.button-save a {
+    text-decoration: none;
+    color: white;
+}
+
+#button-save {
+    background-color: #333131;
+    border: 2px solid #333131;
+    border-radius: 7px;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 5px;
+    transition: 0.3s ease-in-out;
+}

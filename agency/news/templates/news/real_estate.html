@@ -6,44 +6,61 @@
 {%block content %}
 
 
-<a href="{% url 'add_real_estate' %}">Продать</a>
+
 
 <div data-name="TopJK">
 
-        <div class="c-tabs _025a50318d--c-popular-tabs--fA44s">
-          <div data-name="PopularContent" class="с-tabs-content">
-            <div class="c-tabs-tab-content">
-              <div class="_025a50318d--c-popular-block-wrap--WNSeg cg-row">
+  <div class="c-tabs _025a50318d--c-popular-tabs--fA44s">
+    <div data-name="PopularContent" class="с-tabs-content">
+      <div class="c-tabs-tab-content">
+        <div class="_025a50318d--c-popular-block-wrap--WNSeg cg-row">
 
-                {%for real_estate in real_estates%}
+          {%for real_estate in real_estates%}
 
-                <a data-name="Link" href="{% url 'show_real_estate' real_estate.slug %}" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
-                  <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;{{real_estate.first_photo.url}}&quot;);"></div>
-                  <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu"></span><span class="_025a50318d--c-popular-block-title-class--ReN6e"></span></span><span class="_025a50318d--c-popular-price-range--NhWha"> Цена {{real_estate.price}}&nbsp;руб</span></span>
-                    <div class="_025a50318d--c-popular-address--tIqEk"> {{real_estate.city}} {{real_estate.street}} {{real_estate.address}}</div>
-                    <div class="_025a50318d--c-popular-address--tIqEk"> Площадь {{real_estate.aray}}м&#178</div>
-                  </div>
-                  <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Владелец {{real_estate.user}}</span></div>
-                </a>
-
-                {%endfor%}
-
-              </div>
+          <a data-name="Link" href="{% url 'show_real_estate' real_estate.slug %}" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-popular-block--ugLMs _025a50318d--c-popular-block-jk--grW9y cg-col-8">
+            <div class="_025a50318d--c-popular-photo-wrap--CsUX4" style="background-image: url(&quot;{{real_estate.first_photo.url}}&quot;);"></div>
+            <div class="_025a50318d--c-popular-info--HRsb6 _025a50318d--c-popular-info-jk--S3qik"><span class="_025a50318d--c-popular-top--ZxVzL"><span class="_025a50318d--c-popular-block-title--0BuL1"><span class="_025a50318d--c-popular-block-title-text--kmZzu"></span><span class="_025a50318d--c-popular-block-title-class--ReN6e"></span></span><span class="_025a50318d--c-popular-price-range--NhWha"> Цена {{real_estate.price}}&nbsp;руб</span></span>
+              <div class="_025a50318d--c-popular-address--tIqEk"> {{real_estate.city}} {{real_estate.street}} {{real_estate.address}}</div>
+              <div class="_025a50318d--c-popular-address--tIqEk"> Площадь {{real_estate.aray}}м&#178</div>
             </div>
-          </div>
-        </div><a data-name="Link" href="https://vladikavkaz.cian.ru/newobjects/list/?deal_type=sale&amp;engine_version=2&amp;offer_type=newobject&amp;region=4613" class="_025a50318d--c-link-default--hFc6Z undefined _025a50318d--c-all-propositions--L3hUs">Все предложения</a>
-        <div data-name="NewBuildingsServiceBlock" class="_025a50318d--c-selfad-single--mnKO8">
-          <div class="cg-row">
-            <div data-name="JKAdsBlock" class="cg-col-18 cg-col-s-17 cg-col-xs-18">
-              <div class="_025a50318d--c-selfad-single-content--A3YuU">
-                <h3 class="_025a50318d--c-selfad-single-title--_NhhM">Добавьте свой ЖК</h3>
-                <div class="_025a50318d--c-selfad-single-description--dSGOI">Бесплатное размещение объявлений для застройщиков
-                  <br>и их официальных представителей</div>
-              </div>
-            </div>
-            <div data-name="ContactManagerBlock" class="_025a50318d--c-selfad-single-actions--zozuk cg-col-6 cg-col-s-7 cg-col-xs-6"><a data-name="Link" target="_blank" href="/contacts/" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-selfads-item-button--o9HKW">Связаться с менеджером</a></div>
-          </div>
+            <div class="_025a50318d--c-popular-developer--FbZsU"><span class="_025a50318d--c-popular-developer-text--EzmIG">Владелец {{real_estate.user}}</span></div>
+          </a>
+
+          {%endfor%}
+
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="paginator_container">
+
+    <div class="index__grid__2__footer">
+      <div class="pagination">
+        <span class="pagination__current">
+          {%for p in paginator.page_range%}
+          <a href="?page={{p}}">{{p}}</a>
+          {%endfor%}
+        </span>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div data-name="NewBuildingsServiceBlock" class="_025a50318d--c-selfad-single--mnKO8">
+    <div class="cg-row">
+      <div data-name="JKAdsBlock" class="cg-col-18 cg-col-s-17 cg-col-xs-18">
+        <div class="_025a50318d--c-selfad-single-content--A3YuU">
+          <h3 class="_025a50318d--c-selfad-single-title--_NhhM">Добавьте объявление на сайт </h3>
+          <div class="_025a50318d--c-selfad-single-description--dSGOI">Бесплатное размещение объявлений
+            <br> Это легче чем кажется </div>
+        </div>
+      </div>
+      <div data-name="ContactManagerBlock" class="_025a50318d--c-selfad-single-actions--zozuk cg-col-6 cg-col-s-7 cg-col-xs-6">
+        <a data-name="Link" target="_blank" href="{% url 'add_real_estate' %}" class="_025a50318d--c-link-default--hFc6Z _025a50318d--c-selfads-item-button--o9HKW">Разместить объявление </a></div>
+    </div>
+  </div>
 </div>
 
 {%endblock%}
+
