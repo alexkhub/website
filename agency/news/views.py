@@ -1,3 +1,4 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseNotFound, HttpResponseNotFound, Http404
 from django.urls import reverse_lazy
@@ -106,7 +107,13 @@ class Add_Real_Esate(LoginRequiredMixin, DataMixin, CreateView):
         return dict(list(context.items()) + list(c_def.items()))  # объединени
 
 
-# функции
+class Register(CreateView):
+    form_class =UserCreationForm
+    template_name = 'news/registration.html'
+    success_url = reverse_lazy('home')
+
+
+
 
 def enter(request):
     return render(request, 'news/enter.html')

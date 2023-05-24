@@ -11,3 +11,7 @@ class Add_Real_estateForm(forms.ModelForm):
             'description' : forms.Textarea(attrs={'cols': 60 , 'row': 10})
         }
 
+
+class Registration_Form():
+    pass
+
