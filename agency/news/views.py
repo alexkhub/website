@@ -107,7 +107,7 @@ class Add_Real_Esate(LoginRequiredMixin, DataMixin, CreateView):
         return dict(list(context.items()) + list(c_def.items()))  # объединени
 
 
-class Register(CreateView):
+class Registration(CreateView):
     form_class =UserCreationForm
     template_name = 'news/registration.html'
     success_url = reverse_lazy('home')

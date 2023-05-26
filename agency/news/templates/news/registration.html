@@ -1,12 +1,16 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>registration</title>
+    <link type="text/css" href="{% static 'news/css/registration_styles.css' %}" rel="stylesheet">
 </head>
 <body>
-    <form>
-        <h1>Регисьрация</h1>
+    <form method="post">
+        {% csrf_token%}
+        <h1>Регистрация</h1>
         <div class="form-input">
             <input type="text" placeholder="Фамилия" maxlength="15" >
         </div>
@@ -14,7 +18,7 @@
             <input type="text" placeholder="Имя" maxlength="15" >
         </div>
         <div class="form-input">
-            <input type="text" placeholder="Отсество" maxlength="15" >
+            <input type="text" placeholder="Отчество" maxlength="15" >
         </div>
         <div class="form-input">
             <input type="date" placeholder="Дата рождения" maxlength="15" >
