@@ -93,7 +93,7 @@ def regidtration(request):
 # работа с формой
 
 
-class Add_Real_Esate(LoginRequiredMixin, DataMixin, CreateView):
+class Add_Real_Estate(LoginRequiredMixin, DataMixin, CreateView):
     form_class = Add_Real_estateForm
     template_name = 'news/add_real_estate.html'
     success_url = reverse_lazy('real_estate')  # отправление пользователя по ссылке
@@ -108,11 +108,9 @@ class Add_Real_Esate(LoginRequiredMixin, DataMixin, CreateView):
 
 
 class Registration(CreateView):
-    form_class =UserCreationForm
+    form_class = Registration_CreationForm
     template_name = 'news/registration.html'
     success_url = reverse_lazy('home')
-
-
 
 
 def enter(request):
