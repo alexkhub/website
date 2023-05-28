@@ -1,3 +1,4 @@
+from django.contrib.auth import logout, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, get_object_or_404, redirect
@@ -78,10 +79,6 @@ class Profile(LoginRequiredMixin, DataMixin, ListView):
         return dict(list(context.items()) + list(c_def.items()))  # объединение данных
 
 
-def regidtration(request):
-    return render(request, 'news/registration.html')
-
-
 # работа с формой
 
 
@@ -103,15 +100,23 @@ class Registration(CreateView):
     form_class = Registration_CreationForm
     template_name = 'news/registration.html'
     success_url = reverse_lazy('home')
-
+    def form_valid(self, form):
+        user=form.save()
+        login(self.request, user)
+        return redirect('home')
 
 class Login(LoginView):
     form_class = LoginForm
     template_name = 'news/login.html'
 
     def get_success_url(self):
-        return reverse_lazy('profile')
+        return reverse_lazy('home')
 
 
 def PageNotFound(request, exception):
     return HttpResponseNotFound('Ошибка')  # ообработка ошибки
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('home')

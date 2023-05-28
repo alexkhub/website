@@ -34,6 +34,11 @@
 
             <li><a href="{% url m.url_name %}" class="active">{{m.title_menu}}</a></li>
         {%endfor%}
+            {%if request.user.is_authenticated %}
+            <li><a href="{% url 'logout' %}" class="active">Выйти</a></li>
+            {%else%}
+             <li><a href="{% url 'login' %}" class="active">Войти</a></li>
+            {%endif%}
         </ul>
     </nav>
 
