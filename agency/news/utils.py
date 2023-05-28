@@ -4,7 +4,7 @@ from .models import  *
 menu = [{'title_menu': 'Главнaя страница', 'url_name': 'home'},
         {'title_menu': 'Недвижимость', 'url_name': 'real_estate'},  # добаить url и шаблон
         {'title_menu': 'Профиль', 'url_name': 'profile'},  # добаить url и шаблон
-        {'title_menu': 'Войти', 'url_name': 'enter'},  # добаить url
+        {'title_menu': 'Войти', 'url_name': 'login'},  # добаить url
         ]
 
 class DataMixin:

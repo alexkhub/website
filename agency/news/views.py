@@ -1,4 +1,5 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.views import LoginView
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseNotFound, HttpResponseNotFound, Http404
 from django.urls import reverse_lazy
@@ -8,15 +9,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import *
 from .forms import *
 from .utils import *
-
-# переменные
-
-menu = [{'title_menu': 'Главнaя страница', 'url_name': 'home'},
-        {'title_menu': 'Недвижимость', 'url_name': 'real_estate'},  # добаить url и шаблон
-        {'title_menu': 'Профиль', 'url_name': 'profile'},  # добаить url и шаблон
-        {'title_menu': 'О нас', 'url_name': 'about'},  # добаить url и шаблон
-        {'title_menu': 'Войти', 'url_name': 'enter'},  # добаить url
-        ]
 
 
 # страницы
@@ -113,8 +105,12 @@ class Registration(CreateView):
     success_url = reverse_lazy('home')
 
 
-def enter(request):
-    return render(request, 'news/login.html')
+class Login(LoginView):
+    form_class = LoginForm
+    template_name = 'news/login.html'
+
+    def get_success_url(self):
+        return reverse_lazy('profile')
 
 
 def PageNotFound(request, exception):

@@ -4,30 +4,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-
     <title>enter</title>
     <link type="text/css" href="{% static 'news/css/login_styles.css' %}" rel="stylesheet">
 </head>
 <body>
-
     <form>
         <h1>Вход</h1>
         <div class="form-input">
-            <input type="email" placeholder="Логин" maxlength="50" >
+            {%csrf_token%}
+            {{form.as_p}}
         </div>
-
-        <div class="form-input">
-            <input type="password" placeholder="Пароль" maxlength="20">
-        </div>
-
         <div class="form-input">
             <input type="submit" value="Войти">
         </div>
         <a href="#" class = "forget">Забыли пароль?</a>
         <a href="{%url 'registration' %}" class = "forget">Регистрация</a>
         <a href="{%url 'home' %}" class = "forget">На главную страницу </a>
-
     </form>
 </body>
 </html>
