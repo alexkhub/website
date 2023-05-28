@@ -114,7 +114,7 @@ class Registration(CreateView):
 
 
 def enter(request):
-    return render(request, 'news/enter.html')
+    return render(request, 'news/login.html')
 
 
 def PageNotFound(request, exception):

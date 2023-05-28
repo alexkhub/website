@@ -18,9 +18,7 @@ class News(models.Model):
         return self.title
 
     def get_absolute_url(self):
-
         return reverse('home', kwargs={'news_slug': self.slug})  # абслоютная ссылка
-
 
     class Meta:  # админка
         verbose_name = 'Новость'
@@ -116,9 +114,6 @@ class City(models.Model):
         verbose_name_plural = 'Города'
 
 
-
-
-
 class Real_estate(models.Model):
     user = models.ForeignKey('User', on_delete=models.PROTECT, null=True)
     city = models.ForeignKey('City', on_delete=models.CASCADE, verbose_name='Город')
@@ -130,12 +125,10 @@ class Real_estate(models.Model):
     services = models.ForeignKey('Services', on_delete=models.PROTECT, null=True)
     status = models.BooleanField(default=True, verbose_name='Статус')
     aray = models.FloatField(verbose_name='площадь', )
-    price = models.IntegerField( verbose_name='цена')
+    price = models.IntegerField(verbose_name='цена')
     description = models.TextField(verbose_name='Описание', blank=True)
     first_photo = models.ImageField(upload_to='real_estate_first/%Y/%m/%d/', verbose_name='Изображение', blank=True)
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name='URL', )
-
-
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -149,6 +142,7 @@ class Real_estate(models.Model):
         verbose_name = 'Объект недвижимости'
         verbose_name_plural = 'Объекты недвижимости'
         ordering = ['id']
+
 
 class Real_estateImages(models.Model):
     real_estate = models.ForeignKey('Real_estate', verbose_name='Помещение', on_delete=models.CASCADE)
