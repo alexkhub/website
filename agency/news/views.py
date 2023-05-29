@@ -4,7 +4,7 @@ from django.contrib.auth.views import LoginView
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseNotFound, HttpResponseNotFound, Http404
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import *
@@ -44,6 +44,7 @@ class ShowPost(DetailView):
 
 
 class Real_Estate(DataMixin, ListView):
+    """Объявления на сайте """
     model = Real_estate
     paginate_by = 3
     template_name = 'news/real_estate.html'
@@ -62,6 +63,7 @@ class Real_Estate(DataMixin, ListView):
 
 
 class Show_Real_Estate(DataMixin, DetailView):
+    """Просмотр объявления"""
     model = Real_estate
     template_name = 'news/show_real_estate.html'
     slug_url_kwarg = 'real_estate_slug'
@@ -69,6 +71,7 @@ class Show_Real_Estate(DataMixin, DetailView):
 
 
 class Profile(LoginRequiredMixin, DataMixin, ListView):
+    """Профиль"""
     model = User
     template_name = 'news/profile.html'
 
@@ -83,6 +86,7 @@ class Profile(LoginRequiredMixin, DataMixin, ListView):
 
 
 class Add_Real_Estate(LoginRequiredMixin, DataMixin, CreateView):
+    """Добавление объявления"""
     form_class = Add_Real_estateForm
     template_name = 'news/add_real_estate.html'
     success_url = reverse_lazy('real_estate')  # отправление пользователя по ссылке
@@ -97,20 +101,31 @@ class Add_Real_Estate(LoginRequiredMixin, DataMixin, CreateView):
 
 
 class Registration(CreateView):
+    """Регистрация"""
     form_class = Registration_CreationForm
     template_name = 'news/registration.html'
     success_url = reverse_lazy('home')
+
     def form_valid(self, form):
-        user=form.save()
+        user = form.save()
         login(self.request, user)
         return redirect('home')
 
+
 class Login(LoginView):
+    """Авторизация"""
     form_class = LoginForm
     template_name = 'news/login.html'
 
     def get_success_url(self):
         return reverse_lazy('home')
+
+
+class Contact_Help(FormView):
+    """Служба поддержки """
+    form_class = Contact_Help_Form
+    template_name = 'news/contact_help.html'
+    success_url = reverse_lazy('home')
 
 
 def PageNotFound(request, exception):
