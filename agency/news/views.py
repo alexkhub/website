@@ -12,6 +12,10 @@ from .forms import *
 from .utils import *
 
 
+# вспомогательные классы
+
+
+
 # страницы
 
 class Home(DataMixin, ListView):

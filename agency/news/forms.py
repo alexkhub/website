@@ -31,13 +31,6 @@ class Registration_CreationForm(UserCreationForm):
                   'birthday', 'avatar', 'phone']
 
 
-class Registration_ChangeForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'email', 'slug', 'gender',
-                  'birthday', 'avatar', 'phone']
-
-
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label="Логин", widget=forms.TextInput())
     password = forms.CharField(label="Пароль", widget=forms.PasswordInput())
