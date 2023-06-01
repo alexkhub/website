@@ -119,7 +119,6 @@ class Real_estate(models.Model):
     city = models.ForeignKey('City', on_delete=models.CASCADE, verbose_name='Город')
     street = models.CharField(max_length=50, verbose_name='Улица')
     address = models.CharField(max_length=50, verbose_name='Адрес')
-
     category_name = models.ForeignKey('Сategories_real_estate', on_delete=models.CASCADE, null=True,
                                       verbose_name='Категория')
     services = models.ForeignKey('Services', on_delete=models.PROTECT, null=True)

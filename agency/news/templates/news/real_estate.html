@@ -6,6 +6,53 @@
 {%block content %}
 
 
+<form class="form_filter" action="{%url 'real_estate_filter'%}" method="get">
+  <div class="filters_real_estate">
+    <h1>Фильтр</h1>
+    <br>
+    <div class="filter_container" >
+      <h3 class="filter_name">Города</h3>
+      <ul class="filters">
+        {%for city in view.get_city%}
+          <li class="filter">
+            <input type="checkbox" class="checkbox" name="city" value="{{city.name}}">
+            <h3 class="filter_content">{{city.name}}</h3>
+          </li>
+        {%endfor%}
+      </ul>
+    </div>
+
+    <div class="filter_container">
+      <h3 class="filter_name">Категории</h3>
+      <ul class="filters">
+        {%for category in view.get_category_name%}
+          <li class="filter">
+            <input type="checkbox" class="checkbox" name="category" value="{{category.name}}">
+            <h3 class="filter_content">{{category.category_name}}</h3>
+          </li>
+        {%endfor%}
+      </ul>
+    </div>
+
+    <div class="filter_container">
+      <h3 class="filter_name">Услуги</h3>
+      <ul class="filters">
+        {%for service in view.get_services%}
+          <li class="filter">
+            <input type="checkbox" class="checkbox" name="service" value="{{service.name}}">
+            <h3 class="filter_content">{{service.name}}</h3>
+          </li>
+        {%endfor%}
+      </ul>
+    </div>
+
+  </div>
+  <button type="submit">Найти</button>
+</form>
+
+
+
+
 
 
 <div data-name="TopJK">

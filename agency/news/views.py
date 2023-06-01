@@ -1,6 +1,7 @@
 from django.contrib.auth import logout, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseNotFound, HttpResponseNotFound, Http404
 from django.urls import reverse_lazy
@@ -14,6 +15,17 @@ from .utils import *
 
 # вспомогательные классы
 
+class FilterDataRealEstate:
+    """Основные параметры фильтров """
+
+    def get_city(self):
+        return City.objects.all()
+
+    def get_services(self):
+        return Services.objects.all()
+
+    def get_category_name(self):
+        return Сategories_real_estate.objects.all()
 
 
 # страницы
@@ -47,10 +59,21 @@ class ShowPost(DetailView):
     context_object_name = 'post'
 
 
-class Real_Estate(DataMixin, ListView):
+class FilterRealEstate(FilterDataRealEstate, ListView):
+    def get_queryset(self):
+        queryset = Real_estate.objects.filter(
+            Q(city__in=self.request.GET.getlist("city")) |
+            Q(services__in=self.request.GET.getlist("services")) |
+            Q(category_name=self.request.GET.getlist("category_name"))
+        )
+
+        return queryset
+
+
+class Real_Estate(FilterDataRealEstate, DataMixin, ListView):
     """Объявления на сайте """
     model = Real_estate
-    paginate_by = 3
+    paginate_by = 18
     template_name = 'news/real_estate.html'
     context_object_name = 'real_estates'
 

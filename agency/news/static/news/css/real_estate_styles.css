@@ -290,3 +290,37 @@
  .paginator_container ::selection{
 	background:#c9f0dd;
 }
+
+.filters_real_estate{
+    display: block;
+    width : 95%;
+    margin-left : 20px;
+    padding: 15px 30px 15px 30px;
+
+.filters_real_estate h3,h1{
+    text-align: center;
+}
+.filter_name{
+    text-align: center;
+}
+
+
+}
+.filter_container{
+
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 30%;
+    border: 1px solid black;
+}
+
+.filter_content{
+    display: inline-block;
+    margin: 5px;
+    padding: 0;
+}
+.filter_container ul li {
+     list-style: none;
+
+}
